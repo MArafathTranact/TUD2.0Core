@@ -530,8 +530,13 @@ namespace TUDCoreService2._0.Scale_Reader
 
             _scaleOutput = lastRead;
 
+            if (command.openClose
+              && !_readingScale
+              && !_scaleLocked)
+            {
+                CloseNetworkStream();
+            }
 
-            CloseNetworkStream();
             //}
             //catch (Exception ex)
             //{
