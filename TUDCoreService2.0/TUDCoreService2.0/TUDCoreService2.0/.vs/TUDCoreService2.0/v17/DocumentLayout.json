@@ -1,0 +1,414 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|c:\\users\\maraf\\downloads\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\scale reader\\handlescalereader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|solutionrelative:tudcoreservice2.0\\scale reader\\handlescalereader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|c:\\users\\maraf\\downloads\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\websocket\\websocketlistener.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|solutionrelative:tudcoreservice2.0\\websocket\\websocketlistener.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|c:\\users\\maraf\\downloads\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\utilities\\tudcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|solutionrelative:tudcoreservice2.0\\utilities\\tudcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|c:\\users\\maraf\\downloads\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\utilities\\interface\\itudcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|solutionrelative:tudcoreservice2.0\\utilities\\interface\\itudcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|c:\\users\\maraf\\downloads\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\models\\stateobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|solutionrelative:tudcoreservice2.0\\models\\stateobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|c:\\users\\maraf\\downloads\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|solutionrelative:tudcoreservice2.0\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|c:\\users\\maraf\\downloads\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|solutionrelative:tudcoreservice2.0\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|c:\\users\\maraf\\downloads\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\utilities\\api.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|solutionrelative:tudcoreservice2.0\\utilities\\api.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|c:\\users\\maraf\\downloads\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\camera\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|solutionrelative:tudcoreservice2.0\\camera\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|c:\\users\\maraf\\downloads\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\camera\\cameragroup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|solutionrelative:tudcoreservice2.0\\camera\\cameragroup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|c:\\users\\maraf\\downloads\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\nlog.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|solutionrelative:tudcoreservice2.0\\nlog.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|c:\\users\\maraf\\downloads\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\tudworkerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|solutionrelative:tudcoreservice2.0\\tudworkerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|c:\\users\\maraf\\downloads\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\scale reader\\ihandlescalereader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|solutionrelative:tudcoreservice2.0\\scale reader\\ihandlescalereader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|c:\\users\\maraf\\downloads\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\camera\\ihandlecamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|solutionrelative:tudcoreservice2.0\\camera\\ihandlecamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|c:\\users\\maraf\\downloads\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\workstation\\workstation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|solutionrelative:tudcoreservice2.0\\workstation\\workstation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|c:\\users\\maraf\\downloads\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|solutionrelative:tudcoreservice2.0\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|c:\\users\\maraf\\downloads\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\utilities\\socketextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|solutionrelative:tudcoreservice2.0\\utilities\\socketextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|c:\\users\\maraf\\downloads\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\camera\\handlecamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|solutionrelative:tudcoreservice2.0\\camera\\handlecamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|c:\\users\\maraf\\downloads\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\utilities\\nlogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|solutionrelative:tudcoreservice2.0\\utilities\\nlogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|c:\\users\\maraf\\downloads\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\utilities\\tudsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|solutionrelative:tudcoreservice2.0\\utilities\\tudsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|c:\\users\\maraf\\downloads\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\models\\jpeggercameracapturedatamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|solutionrelative:tudcoreservice2.0\\models\\jpeggercameracapturedatamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|c:\\users\\maraf\\downloads\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\utilities\\interface\\itudsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|solutionrelative:tudcoreservice2.0\\utilities\\interface\\itudsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|c:\\users\\maraf\\downloads\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\utilities\\extensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|solutionrelative:tudcoreservice2.0\\utilities\\extensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|c:\\users\\maraf\\downloads\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\tudcoreservice2.0\\camera\\icameragroup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}|TUDCoreService2.0\\TUDCoreService2.0.csproj|solutionrelative:tudcoreservice2.0\\camera\\icameragroup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 623,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\Program.cs",
+              "RelativeDocumentMoniker": "TUDCoreService2.0\\Program.cs",
+              "ToolTip": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\Program.cs",
+              "RelativeToolTip": "TUDCoreService2.0\\Program.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAQwB8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T13:52:02.863Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "TudWorkerService.cs",
+              "DocumentMoniker": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TudWorkerService.cs",
+              "RelativeDocumentMoniker": "TUDCoreService2.0\\TudWorkerService.cs",
+              "ToolTip": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TudWorkerService.cs",
+              "RelativeToolTip": "TUDCoreService2.0\\TudWorkerService.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAgwCsAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T13:54:25.909Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "WebSocketListener.cs",
+              "DocumentMoniker": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\WebSocket\\WebSocketListener.cs",
+              "RelativeDocumentMoniker": "TUDCoreService2.0\\WebSocket\\WebSocketListener.cs",
+              "ToolTip": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\WebSocket\\WebSocketListener.cs",
+              "RelativeToolTip": "TUDCoreService2.0\\WebSocket\\WebSocketListener.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAF4CAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T14:46:10.053Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HandleScaleReader.cs",
+              "DocumentMoniker": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\Scale Reader\\HandleScaleReader.cs",
+              "RelativeDocumentMoniker": "TUDCoreService2.0\\Scale Reader\\HandleScaleReader.cs",
+              "ToolTip": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\Scale Reader\\HandleScaleReader.cs",
+              "RelativeToolTip": "TUDCoreService2.0\\Scale Reader\\HandleScaleReader.cs",
+              "ViewState": "AQIAAEoAAAAAAAAAAAAgwFUAAABgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T15:17:55.352Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ITudCommand.cs",
+              "DocumentMoniker": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\Utilities\\Interface\\ITudCommand.cs",
+              "RelativeDocumentMoniker": "TUDCoreService2.0\\Utilities\\Interface\\ITudCommand.cs",
+              "ToolTip": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\Utilities\\Interface\\ITudCommand.cs",
+              "RelativeToolTip": "TUDCoreService2.0\\Utilities\\Interface\\ITudCommand.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAA7wBwAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-23T22:22:33.53Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TudCommand.cs",
+              "DocumentMoniker": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\Utilities\\TudCommand.cs",
+              "RelativeDocumentMoniker": "TUDCoreService2.0\\Utilities\\TudCommand.cs",
+              "ToolTip": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\Utilities\\TudCommand.cs",
+              "RelativeToolTip": "TUDCoreService2.0\\Utilities\\TudCommand.cs",
+              "ViewState": "AQIAACsAAAAAAAAAAAA8wDsAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-23T22:21:39.789Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "StateObject.cs",
+              "DocumentMoniker": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\Models\\StateObject.cs",
+              "RelativeDocumentMoniker": "TUDCoreService2.0\\Models\\StateObject.cs",
+              "ToolTip": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\Models\\StateObject.cs",
+              "RelativeToolTip": "TUDCoreService2.0\\Models\\StateObject.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-23T19:07:12.827Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CameraGroup.cs",
+              "DocumentMoniker": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\Camera\\CameraGroup.cs",
+              "RelativeDocumentMoniker": "TUDCoreService2.0\\Camera\\CameraGroup.cs",
+              "ToolTip": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\Camera\\CameraGroup.cs",
+              "RelativeToolTip": "TUDCoreService2.0\\Camera\\CameraGroup.cs",
+              "ViewState": "AQIAACUAAAAAAAAAAAAAwDgAAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-19T03:16:05.97Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "IHandleScaleReader.cs",
+              "DocumentMoniker": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\Scale Reader\\IHandleScaleReader.cs",
+              "RelativeDocumentMoniker": "TUDCoreService2.0\\Scale Reader\\IHandleScaleReader.cs",
+              "ToolTip": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\Scale Reader\\IHandleScaleReader.cs",
+              "RelativeToolTip": "TUDCoreService2.0\\Scale Reader\\IHandleScaleReader.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwA0AAACBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T19:11:12.616Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "SocketExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\Utilities\\SocketExtensions.cs",
+              "RelativeDocumentMoniker": "TUDCoreService2.0\\Utilities\\SocketExtensions.cs",
+              "ToolTip": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\Utilities\\SocketExtensions.cs",
+              "RelativeToolTip": "TUDCoreService2.0\\Utilities\\SocketExtensions.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T17:32:49.323Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "TUDCoreService2.0\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\appsettings.Development.json",
+              "RelativeToolTip": "TUDCoreService2.0\\appsettings.Development.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-05T21:02:24.858Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "NLog.config",
+              "DocumentMoniker": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\NLog.config",
+              "RelativeDocumentMoniker": "TUDCoreService2.0\\NLog.config",
+              "ToolTip": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\NLog.config",
+              "RelativeToolTip": "TUDCoreService2.0\\NLog.config",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAABOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-10-30T23:02:12.609Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "NLogger.cs",
+              "DocumentMoniker": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\Utilities\\NLogger.cs",
+              "RelativeDocumentMoniker": "TUDCoreService2.0\\Utilities\\NLogger.cs",
+              "ToolTip": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\Utilities\\NLogger.cs",
+              "RelativeToolTip": "TUDCoreService2.0\\Utilities\\NLogger.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T01:57:32.7Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "JpeggerCameraCaptureDataModel.cs",
+              "DocumentMoniker": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\Models\\JpeggerCameraCaptureDataModel.cs",
+              "RelativeDocumentMoniker": "TUDCoreService2.0\\Models\\JpeggerCameraCaptureDataModel.cs",
+              "ToolTip": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\Models\\JpeggerCameraCaptureDataModel.cs",
+              "RelativeToolTip": "TUDCoreService2.0\\Models\\JpeggerCameraCaptureDataModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T19:10:07.089Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ITUDSettings.cs",
+              "DocumentMoniker": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\Utilities\\Interface\\ITUDSettings.cs",
+              "RelativeDocumentMoniker": "TUDCoreService2.0\\Utilities\\Interface\\ITUDSettings.cs",
+              "ToolTip": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\Utilities\\Interface\\ITUDSettings.cs",
+              "RelativeToolTip": "TUDCoreService2.0\\Utilities\\Interface\\ITUDSettings.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwBMAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T16:46:56.135Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\appsettings.json",
+              "RelativeDocumentMoniker": "TUDCoreService2.0\\appsettings.json",
+              "ToolTip": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\appsettings.json",
+              "RelativeToolTip": "TUDCoreService2.0\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-24T16:47:08.458Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Extensions.cs",
+              "DocumentMoniker": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\Utilities\\Extensions.cs",
+              "RelativeDocumentMoniker": "TUDCoreService2.0\\Utilities\\Extensions.cs",
+              "ToolTip": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\Utilities\\Extensions.cs",
+              "RelativeToolTip": "TUDCoreService2.0\\Utilities\\Extensions.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T16:45:01.983Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Camera.cs",
+              "DocumentMoniker": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\Camera\\Camera.cs",
+              "RelativeDocumentMoniker": "TUDCoreService2.0\\Camera\\Camera.cs",
+              "ToolTip": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\Camera\\Camera.cs",
+              "RelativeToolTip": "TUDCoreService2.0\\Camera\\Camera.cs",
+              "ViewState": "AQIAAG4AAAAAAAAAAAAAwHUAAABTAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T16:36:13.179Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "ICameraGroup.cs",
+              "DocumentMoniker": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\Camera\\ICameraGroup.cs",
+              "RelativeDocumentMoniker": "TUDCoreService2.0\\Camera\\ICameraGroup.cs",
+              "ToolTip": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\Camera\\ICameraGroup.cs",
+              "RelativeToolTip": "TUDCoreService2.0\\Camera\\ICameraGroup.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T16:28:08.127Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "HandleCamera.cs",
+              "DocumentMoniker": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\Camera\\HandleCamera.cs",
+              "RelativeDocumentMoniker": "TUDCoreService2.0\\Camera\\HandleCamera.cs",
+              "ToolTip": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\Camera\\HandleCamera.cs",
+              "RelativeToolTip": "TUDCoreService2.0\\Camera\\HandleCamera.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAArwC8AAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T14:11:07.752Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "WorkStation.cs",
+              "DocumentMoniker": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\WorkStation\\WorkStation.cs",
+              "RelativeDocumentMoniker": "TUDCoreService2.0\\WorkStation\\WorkStation.cs",
+              "ToolTip": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\WorkStation\\WorkStation.cs",
+              "RelativeToolTip": "TUDCoreService2.0\\WorkStation\\WorkStation.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAD4vzgAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T01:56:46.798Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "API.cs",
+              "DocumentMoniker": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\Utilities\\API.cs",
+              "RelativeDocumentMoniker": "TUDCoreService2.0\\Utilities\\API.cs",
+              "ToolTip": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\Utilities\\API.cs",
+              "RelativeToolTip": "TUDCoreService2.0\\Utilities\\API.cs",
+              "ViewState": "AQIAAEsAAAAAAAAAAAAuwFkAAAA8AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T01:55:13.579Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IHandleCamera.cs",
+              "DocumentMoniker": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\Camera\\IHandleCamera.cs",
+              "RelativeDocumentMoniker": "TUDCoreService2.0\\Camera\\IHandleCamera.cs",
+              "ToolTip": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\Camera\\IHandleCamera.cs",
+              "RelativeToolTip": "TUDCoreService2.0\\Camera\\IHandleCamera.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T01:33:55.35Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "TUDSettings.cs",
+              "DocumentMoniker": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\Utilities\\TUDSettings.cs",
+              "RelativeDocumentMoniker": "TUDCoreService2.0\\Utilities\\TUDSettings.cs",
+              "ToolTip": "C:\\Users\\MAraf\\Downloads\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\TUDCoreService2.0\\Utilities\\TUDSettings.cs",
+              "RelativeToolTip": "TUDCoreService2.0\\Utilities\\TUDSettings.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwBUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T16:48:23.275Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+C:\Users\MAraf\source\repos\TUDCoreService2.0\MyWorkerServiceInstaller\bin\Release\MyWorkerServiceInstaller.msi
+C:\Users\MAraf\source\repos\TUDCoreService2.0\MyWorkerServiceInstaller\bin\Release\MyWorkerServiceInstaller.wixpdb
+obj\Release\Product.wixobj
+obj\Release\MyWorkerServiceInstaller.wixproj.BindContentsFileListnull.txt
+obj\Release\MyWorkerServiceInstaller.wixproj.BindOutputsFileListnull.txt
+obj\Release\MyWorkerServiceInstaller.wixproj.BindBuiltOutputsFileListnull.txt
+C:\Users\MAraf\source\repos\TUDCoreService2.0\MyWorkerServiceInstaller\bin\Release\cab1.cab
