@@ -641,6 +641,11 @@ namespace TUDCoreService2._0.WebSocket
 
                 }
             }
+            catch (SocketException sEx)
+            {
+                if (!handler.Connected)
+                    LogEvents($"Client disconnected");
+            }
             catch (Exception ex)
             {
                 _logger.LogExceptionWithNoLock($" Work Station '{WorkStationName}' : Exception at WebSocketListener.ReadCallback ", ex);
@@ -679,10 +684,11 @@ namespace TUDCoreService2._0.WebSocket
 
         private void SendCallback(IAsyncResult ar)
         {
+            // Retrieve the socket from the state object.
+            Socket handler = (Socket)ar.AsyncState;
             try
             {
-                // Retrieve the socket from the state object.
-                Socket handler = (Socket)ar.AsyncState;
+
 
                 // Complete sending the data to the remote device.
                 int bytesSent = handler.EndSend(ar);
@@ -701,6 +707,11 @@ namespace TUDCoreService2._0.WebSocket
                     new AsyncCallback(ReadCallback), state);
 
 
+            }
+            catch (SocketException sEX)
+            {
+                if (!handler.Connected)
+                    LogEvents($"Client disconnected");
             }
             catch (Exception ex)
             {
