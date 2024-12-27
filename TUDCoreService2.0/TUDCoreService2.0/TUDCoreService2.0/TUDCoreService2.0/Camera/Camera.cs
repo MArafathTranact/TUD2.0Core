@@ -115,9 +115,9 @@ namespace TUDCoreService2._0.Camera
                     Cameras = new List<ICamera>();
 
                 if (Cameras != null && Cameras.Any())
-                    _logger.LogWithNoLock($"Total cameras loaded {Cameras.Count}");
+                    _logger.LogWithNoLock($" {Cameras.Count} Cameras loaded from Yard '{_tudSettings.YardId}'");
                 else
-                    _logger.LogWithNoLock($"Total cameras loaded 0");
+                    _logger.LogWithNoLock($" 0 Cameras loaded from Yard '{_tudSettings.YardId}'");
 
                 StringBuilder sb = new StringBuilder();
                 foreach (var camera in Cameras)

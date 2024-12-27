@@ -52,9 +52,9 @@ namespace TUDCoreService2._0.Camera
                     CameraGroups = new List<ICameraGroup>();
 
                 if (CameraGroups != null && CameraGroups.Any())
-                    _logger.LogWithNoLock($"Total camera groups loaded {CameraGroups.Count}");
+                    _logger.LogWithNoLock($" {CameraGroups.Count} Camera groups loaded from Yard '{_tudSettings.YardId}'");
                 else
-                    _logger.LogWithNoLock($"Total camera groups loaded 0");
+                    _logger.LogWithNoLock($" 0 Camera groups loaded from Yard '{_tudSettings.YardId}'");
 
 
             }
