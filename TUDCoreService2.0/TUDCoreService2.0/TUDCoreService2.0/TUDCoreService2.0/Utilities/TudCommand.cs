@@ -58,6 +58,7 @@ namespace TUDCoreService2._0.Utilities
         public string stopLightEndpoint { get; set; }
 
         public bool isFireCameraEnabled { get; set; } = true;
+        public bool isScaleSettingsUpdated { get; set; } = true;
 
         public TicketInformation ticket { get; set; }
     }

@@ -600,10 +600,44 @@ namespace TUDCoreService2._0.WebSocket
                         scaleWeight = string.Empty;
                         var command = JsonConvert.DeserializeObject<TudCommand>(tcpMessage.command);
                         LogEvents($"Received Tcp Command '{JsonConvert.SerializeObject(tcpMessage)}'");
-                        LogEvents($"Tcp Command received to trigger Scale Reader '{command.scaleName}'");
 
-                        if (!command.openClose)
+
+                        if (command != null && !command.openClose && command.isScaleSettingsUpdated)
                         {
+
+                            LogEvents($"Tcp Command received to update scale settings..'{command.scaleName}'");
+                            if (_Scales.ContainsKey(command.id))
+                            {
+                                try
+                                {
+                                    _Scales.TryGetValue(command.id, out var scaleReaderHandler);
+                                    if (scaleReaderHandler != null)
+                                    {
+                                        _Scales.Remove(command.id);
+                                        scaleSettingsCommand.RemoveAll(x => x.id == command.id);
+                                        //scaleSettingsCommand.Add(command);
+                                        //await WriteScaleInformationToConfigFile();
+                                        scaleReaderHandler.CloseConnections();
+                                        scaleReaderHandler = null;
+                                    }
+
+                                    IHandleScaleReader scaleReaderHandlerOnUpdate = new HandleScaleReader(_handleCamera, _logger, _aPI);
+
+                                    _Scales.Add(command.id, scaleReaderHandlerOnUpdate);
+                                    scaleSettingsCommand.Add(command);
+                                    await WriteScaleInformationToConfigFile();
+                                    scaleWeight = await scaleReaderHandlerOnUpdate.GetTcpScaleWeight(command, WorkStationName, WorkStationId);
+                                    //scaleWeight = await scaleReaderHandler.GetTcpScaleWeight(command, WorkStationName, WorkStationId);
+                                }
+                                catch (Exception)
+                                {
+                                }
+
+                            }
+                        }
+                        else if (command != null && !command.openClose)
+                        {
+                            LogEvents($"Tcp Command received to trigger Scale Reader '{command.scaleName}'");
                             var scaleName = command.id;
                             if (!_Scales.ContainsKey(scaleName))
                             {
@@ -624,8 +658,9 @@ namespace TUDCoreService2._0.WebSocket
                                 }
                             }
                         }
-                        else
+                        else if (command != null)
                         {
+                            LogEvents($"Tcp Command received to trigger Scale Reader '{command.scaleName}'");
                             IHandleScaleReader scaleReaderHandler = new HandleScaleReader(_handleCamera, _logger, _aPI);
                             scaleWeight = await scaleReaderHandler.GetTcpScaleWeight(command, WorkStationName, WorkStationId);
                         }
