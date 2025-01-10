@@ -321,7 +321,7 @@ namespace TUDCoreService2._0.WebSocket
                                                 _Scales.Add(scaleName, scaleReaderHandler);
                                                 scaleSettingsCommand.Add(command);
                                                 await WriteScaleInformationToConfigFile();
-                                                await scaleReaderHandler.ProcessCommandHandler(command, WorkStationName, WorkStationId, true);
+                                                await scaleReaderHandler.ProcessCommandHandler(command, WorkStationName, WorkStationId, true, true);
                                             }
                                             else
                                             {
@@ -331,7 +331,7 @@ namespace TUDCoreService2._0.WebSocket
                                                     if (scaleReaderHandler != null)
                                                     {
 
-                                                        await scaleReaderHandler.ProcessCommandHandler(command, WorkStationName, WorkStationId, true);
+                                                        await scaleReaderHandler.ProcessCommandHandler(command, WorkStationName, WorkStationId, true, false);
                                                     }
                                                 }
                                             }
@@ -339,7 +339,7 @@ namespace TUDCoreService2._0.WebSocket
                                         else
                                         {
                                             IHandleScaleReader scaleReaderHandler = new HandleScaleReader(_handleCamera, _logger, _aPI);
-                                            await scaleReaderHandler.ProcessCommandHandler(command, WorkStationName, WorkStationId, true);
+                                            await scaleReaderHandler.ProcessCommandHandler(command, WorkStationName, WorkStationId, true, false);
                                         }
 
 
@@ -626,12 +626,21 @@ namespace TUDCoreService2._0.WebSocket
                                     _Scales.Add(command.id, scaleReaderHandlerOnUpdate);
                                     scaleSettingsCommand.Add(command);
                                     await WriteScaleInformationToConfigFile();
-                                    scaleWeight = await scaleReaderHandlerOnUpdate.GetTcpScaleWeight(command, WorkStationName, WorkStationId);
-                                    //scaleWeight = await scaleReaderHandler.GetTcpScaleWeight(command, WorkStationName, WorkStationId);
+                                    scaleWeight = await scaleReaderHandlerOnUpdate.GetTcpScaleWeight(command, WorkStationName, WorkStationId, true);
                                 }
                                 catch (Exception)
                                 {
                                 }
+
+                            }
+                            else
+                            {
+                                IHandleScaleReader scaleReaderHandler = new HandleScaleReader(_handleCamera, _logger, _aPI);
+
+                                _Scales.Add(command.id, scaleReaderHandler);
+                                scaleSettingsCommand.Add(command);
+                                await WriteScaleInformationToConfigFile();
+                                scaleWeight = await scaleReaderHandler.GetTcpScaleWeight(command, WorkStationName, WorkStationId, true);
 
                             }
                         }
@@ -646,7 +655,7 @@ namespace TUDCoreService2._0.WebSocket
                                 _Scales.Add(scaleName, scaleReaderHandler);
                                 scaleSettingsCommand.Add(command);
                                 await WriteScaleInformationToConfigFile();
-                                scaleWeight = await scaleReaderHandler.GetTcpScaleWeight(command, WorkStationName, WorkStationId);
+                                scaleWeight = await scaleReaderHandler.GetTcpScaleWeight(command, WorkStationName, WorkStationId, true);
                             }
                             else
                             {
@@ -654,7 +663,7 @@ namespace TUDCoreService2._0.WebSocket
                                 {
                                     _Scales.TryGetValue(scaleName, out var scaleReaderHandler);
                                     if (scaleReaderHandler != null)
-                                        scaleWeight = await scaleReaderHandler.GetTcpScaleWeight(command, WorkStationName, WorkStationId);
+                                        scaleWeight = await scaleReaderHandler.GetTcpScaleWeight(command, WorkStationName, WorkStationId, false);
                                 }
                             }
                         }
@@ -662,7 +671,7 @@ namespace TUDCoreService2._0.WebSocket
                         {
                             LogEvents($"Tcp Command received to trigger Scale Reader '{command.scaleName}'");
                             IHandleScaleReader scaleReaderHandler = new HandleScaleReader(_handleCamera, _logger, _aPI);
-                            scaleWeight = await scaleReaderHandler.GetTcpScaleWeight(command, WorkStationName, WorkStationId);
+                            scaleWeight = await scaleReaderHandler.GetTcpScaleWeight(command, WorkStationName, WorkStationId, false);
                         }
 
                         LogEvents($"Sending Tcp Response '{scaleWeight}'");
@@ -853,7 +862,7 @@ namespace TUDCoreService2._0.WebSocket
                         _Scales.Add(scaleName, scaleReaderHandler);
                         //scaleSettingsCommand.Add(command);
                         //await WriteScaleInformationToConfigFile();
-                        await scaleReaderHandler.ProcessCommandHandler(command, WorkStationName, WorkStationId, false);
+                        await scaleReaderHandler.ProcessCommandHandler(command, WorkStationName, WorkStationId, false, true);
                     }
                     else
                     {
@@ -863,7 +872,7 @@ namespace TUDCoreService2._0.WebSocket
                             if (scaleReaderHandler != null)
                             {
 
-                                await scaleReaderHandler.ProcessCommandHandler(command, WorkStationName, WorkStationId, false);
+                                await scaleReaderHandler.ProcessCommandHandler(command, WorkStationName, WorkStationId, false, false);
                             }
                         }
                     }
@@ -871,7 +880,7 @@ namespace TUDCoreService2._0.WebSocket
                 else
                 {
                     IHandleScaleReader scaleReaderHandler = new HandleScaleReader(_handleCamera, _logger, _aPI);
-                    await scaleReaderHandler.ProcessCommandHandler(command, WorkStationName, WorkStationId, false);
+                    await scaleReaderHandler.ProcessCommandHandler(command, WorkStationName, WorkStationId, false, false);
                 }
             }
             catch (Exception ex)

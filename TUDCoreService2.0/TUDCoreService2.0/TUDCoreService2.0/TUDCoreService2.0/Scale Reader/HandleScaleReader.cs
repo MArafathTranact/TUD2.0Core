@@ -56,7 +56,7 @@ namespace TUDCoreService2._0.Scale_Reader
             _aPI = aPI;
         }
 
-        public async Task<string> GetTcpScaleWeight(TudCommand command, string workStationName, int workStationId)
+        public async Task<string> GetTcpScaleWeight(TudCommand command, string workStationName, int workStationId, bool delayResponse)
         {
             var returnWeight = string.Empty;
 
@@ -66,7 +66,7 @@ namespace TUDCoreService2._0.Scale_Reader
                 CurrentWeight = null;
                 _workStationId = workStationId;
                 //_readingScale = true;
-                var weightRead = await GetScaleWeight(command);
+                var weightRead = await GetScaleWeight(command, delayResponse);
 
                 if (string.IsNullOrEmpty(GetError()))
                 {
@@ -105,16 +105,14 @@ namespace TUDCoreService2._0.Scale_Reader
             return returnWeight;
         }
 
-        public async Task ProcessCommandHandler(TudCommand command, string workStationName, int workStationId, bool triggerUpdateCamera)
+        public async Task ProcessCommandHandler(TudCommand command, string workStationName, int workStationId, bool triggerUpdateCamera, bool delayResponse)
         {
             try
             {
                 _workStationName = workStationName;
                 _workStationId = workStationId;
 
-
-
-                var weightRead = await GetScaleWeight(command);
+                var weightRead = await GetScaleWeight(command, delayResponse);
 
                 if (string.IsNullOrEmpty(GetError()))
                 {
@@ -182,7 +180,7 @@ namespace TUDCoreService2._0.Scale_Reader
             }
         }
 
-        public async Task<string> GetScaleWeight(TudCommand command, bool nolock = false)
+        public async Task<string> GetScaleWeight(TudCommand command, bool delayResponse, bool nolock = false)
         {
             //try
             //{
@@ -228,6 +226,8 @@ namespace TUDCoreService2._0.Scale_Reader
             //    LogExceptionEvents("Exception at HandleScaleReader.GetScaleWeight", ex);
             //}
 
+            if (delayResponse)
+                await Task.Delay(TimeSpan.FromSeconds(3));
             return _scaleOutput;
         }
 
@@ -582,7 +582,7 @@ namespace TUDCoreService2._0.Scale_Reader
                 _tcpClient = new TcpClient();
                 // _tcpClient.Connect(endpoint);
 
-                if (!_tcpClient.ConnectAsync(command.ipAddress, command.ipPort.Value).Wait(4000))
+                if (!_tcpClient.ConnectAsync(command.ipAddress, command.ipPort.Value).Wait(3000))
                 {
                     _errorMessage = $"No connection could be made because the target machine actively refused it {command.ipAddress}:{command.ipPort}";
                     return;

@@ -11,8 +11,8 @@ namespace TUDCoreService2._0.Scale_Reader
 {
     public interface IHandleScaleReader
     {
-        public Task ProcessCommandHandler(TudCommand command, string workStationName, int workStationId, bool triggerUpdateCamera);
-        public Task<string> GetTcpScaleWeight(TudCommand command, string workStationName, int workStationId);
+        public Task ProcessCommandHandler(TudCommand command, string workStationName, int workStationId, bool triggerUpdateCamera, bool delayResponse);
+        public Task<string> GetTcpScaleWeight(TudCommand command, string workStationName, int workStationId, bool delayResponse);
         public void CloseConnections();
     }
 }
