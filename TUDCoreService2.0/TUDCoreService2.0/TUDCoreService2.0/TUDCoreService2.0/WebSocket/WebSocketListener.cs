@@ -91,9 +91,9 @@ namespace TUDCoreService2._0.WebSocket
         {
             try
             {
-                LogEvents($"Refreshing Cameras/Groups");
-                await _camera.GetCameras();
-                await _cameraGroup.GetCameraGroups();
+                //LogEvents($"Refreshing Cameras/Groups");
+                //await _camera.GetCameras();
+                //await _cameraGroup.GetCameraGroups();
             }
             catch (Exception ex)
             {

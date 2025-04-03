@@ -39,22 +39,22 @@ namespace TUDCoreService2._0.Camera
             _configuration = configuration;
             _camera = camera;
             _tudSettings = _configuration.GetSection("TUDSettings").Get<TUDSettings>();
-            Task.Run(async () => await GetCameraGroups());
+            //Task.Run(async () => await GetCameraGroups());
         }
-        public async Task GetCameraGroups()
+        public async Task GetCameraGroups(string cameraGroupName, string yardId)
         {
             try
             {
-                var cameras = await _aPI.GetRequest<List<CameraGroup>>($"camera_groups?yardid={_tudSettings.YardId}");
+                var cameras = await _aPI.GetRequest<List<CameraGroup>>($"camera_groups?cam_group={cameraGroupName}&yardid={yardId}");
                 if (cameras != null)
                     CameraGroups = new List<ICameraGroup>(cameras.Cast<ICameraGroup>());
                 else
                     CameraGroups = new List<ICameraGroup>();
 
                 if (CameraGroups != null && CameraGroups.Any())
-                    _logger.LogWithNoLock($" {CameraGroups.Count} Camera groups loaded from Yard '{_tudSettings.YardId}'");
+                    _logger.LogWithNoLock($" {CameraGroups.Count} Camera groups loaded from Yard '{yardId}'");
                 else
-                    _logger.LogWithNoLock($" 0 Camera groups loaded from Yard '{_tudSettings.YardId}'");
+                    _logger.LogWithNoLock($" 0 Camera groups loaded from Yard '{yardId}'");
 
 
             }
@@ -64,8 +64,10 @@ namespace TUDCoreService2._0.Camera
             }
         }
 
-        public async Task<List<ICamera>> GetConfiguredCameraGroups(string cameraGroupName)
+        public async Task<List<ICamera>> GetConfiguredCameraGroups(string cameraGroupName, string yardId)
         {
+            await GetCameraGroups(cameraGroupName, yardId);
+
             if (CameraGroups?.Count > 0)
             {
                 // var camGroup = CameraGroups.Where(x => x.cam_group == cameraGroupName).ToList();
@@ -73,6 +75,7 @@ namespace TUDCoreService2._0.Camera
 
                 if (camGroup.Any())
                 {
+                    await _camera.GetCameras(yardId);
                     var cameras = _camera.Cameras;
                     return cameras.Where(x => camGroup.Any(z => x.camera_name.ToLower() == z.cam_name.ToLower())).ToList();
                 }

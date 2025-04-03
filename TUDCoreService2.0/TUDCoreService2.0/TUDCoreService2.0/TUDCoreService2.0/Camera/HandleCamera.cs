@@ -45,7 +45,7 @@ namespace TUDCoreService2._0.Camera
 
                 if (request == null) { return; }
 
-                var cameraGroup = _cameraGroup.GetConfiguredCameraGroups(request.CameraName.Trim()).Result;
+                var cameraGroup = _cameraGroup.GetConfiguredCameraGroups(request.CameraName.Trim(), request.YardId).Result;
 
                 if (cameraGroup?.Count() > 0)
                 {
@@ -54,7 +54,7 @@ namespace TUDCoreService2._0.Camera
                 }
                 else
                 {
-                    var cameraInfo = _camera.GetConfiguredCamera(request.CameraName.Trim()).Result;
+                    var cameraInfo = _camera.GetConfiguredCamera(request.CameraName.Trim(), request.YardId).Result;
 
                     if (cameraInfo != null && cameraInfo.IsNetCam == 1 && !string.IsNullOrEmpty(cameraInfo.URL))
                     {

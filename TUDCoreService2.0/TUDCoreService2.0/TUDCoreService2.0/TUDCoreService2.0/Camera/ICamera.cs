@@ -75,9 +75,9 @@ namespace TUDCoreService2._0.Camera
         //int? NumberOfMatchingRead { get; set; }
 
         List<ICamera> Cameras { get; set; }
-        Task GetCameras();
+        Task GetCameras(string yardId);
 
-        Task<ICamera> GetConfiguredCamera(string cameraName);
+        Task<ICamera> GetConfiguredCamera(string cameraName, string yardId);
 
     }
 }

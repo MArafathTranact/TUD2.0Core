@@ -12,8 +12,8 @@ namespace TUDCoreService2._0.Camera
         string cam_name { get; set; }
         string yardid { get; set; }
 
-        Task GetCameraGroups();
+        Task GetCameraGroups(string cameraName, string yardId);
 
-        Task<List<ICamera>> GetConfiguredCameraGroups(string cameraName);
+        Task<List<ICamera>> GetConfiguredCameraGroups(string cameraName, string yardId);
     }
 }

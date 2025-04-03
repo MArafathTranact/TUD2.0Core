@@ -101,23 +101,23 @@ namespace TUDCoreService2._0.Camera
             _tudSettings = tudSettings;
             _configuration = configuration;
             _tudSettings = _configuration.GetSection("TUDSettings").Get<TUDSettings>();
-            Task.Run(async () => await GetCameras());
+            //Task.Run(async () => await GetCameras());
         }
 
-        public async Task GetCameras()
+        public async Task GetCameras(string yardId)
         {
             try
             {
-                var cameras = await _aPI.GetRequest<List<Camera>>($"cameras?yardid={_tudSettings.YardId}");
+                var cameras = await _aPI.GetRequest<List<Camera>>($"cameras?yardid={yardId}");
                 if (cameras != null)
                     Cameras = new List<ICamera>(cameras.Cast<ICamera>());
                 else
                     Cameras = new List<ICamera>();
 
                 if (Cameras != null && Cameras.Any())
-                    _logger.LogWithNoLock($" {Cameras.Count} Cameras loaded from Yard '{_tudSettings.YardId}'");
+                    _logger.LogWithNoLock($" {Cameras.Count} Cameras loaded from Yard '{yardId}'");
                 else
-                    _logger.LogWithNoLock($" 0 Cameras loaded from Yard '{_tudSettings.YardId}'");
+                    _logger.LogWithNoLock($" 0 Cameras loaded from Yard '{yardId}'");
 
                 StringBuilder sb = new StringBuilder();
                 foreach (var camera in Cameras)
@@ -161,8 +161,9 @@ namespace TUDCoreService2._0.Camera
             }
         }
 
-        public async Task<ICamera> GetConfiguredCamera(string cameraName)
+        public async Task<ICamera> GetConfiguredCamera(string cameraName, string yardId)
         {
+            await GetCameras(yardId);
             var camera = Cameras.Where(x => x.camera_name == cameraName).FirstOrDefault();
             return camera;
         }
