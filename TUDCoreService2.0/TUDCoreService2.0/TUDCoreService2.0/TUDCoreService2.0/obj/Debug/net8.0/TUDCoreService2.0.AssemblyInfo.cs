@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TUDCoreService2.0")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5f8c6e75bb2e1a4aa30988b36beb2347c007f0fe")]
 [assembly: System.Reflection.AssemblyProductAttribute("TUDCoreService2.0")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TUDCoreService2.0")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
