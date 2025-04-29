@@ -87,7 +87,7 @@ namespace TUDCoreService2._0.Utilities
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Token", _tUDSettings.JPEGgerToken);
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 method = _tUDSettings.JPEGgerAPI + param;
-                _logger.LogWithNoLock($"Update Url : {method}");
+                _logger.LogWithNoLock($" Update Url : {method}");
                 using (HttpResponseMessage response = client.PutAsync(method, updateItem, new JsonMediaTypeFormatter()).Result)
                 {
                     if (response.IsSuccessStatusCode)
