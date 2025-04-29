@@ -10,7 +10,7 @@ namespace TUDCoreService2._0.WorkStation
     public interface IWorkStation
     {
         [JsonProperty(PropertyName = "id")]
-        public int id { get; set; }
+        public long id { get; set; }
 
         [JsonProperty(PropertyName = "name")]
         public string name { get; set; }

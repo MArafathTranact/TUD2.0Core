@@ -10,7 +10,7 @@ namespace TUDCoreService2._0.WorkStation
     public class WorkStation : IWorkStation
     {
         public List<IWorkStation> workStations;
-        public int id { get; set; }
+        public long id { get; set; }
         public string name { get; set; }
         public string ip { get; set; }
         public string port { get; set; }
