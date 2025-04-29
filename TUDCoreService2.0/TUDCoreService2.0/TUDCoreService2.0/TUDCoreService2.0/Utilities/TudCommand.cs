@@ -20,7 +20,7 @@ namespace TUDCoreService2._0.Utilities
         public string transaction_type { get; set; }
         public string branch_code { get; set; }
         public string commodity { get; set; }
-        public string yardid { get; set; }
+        public string yardId { get; set; }
         public int tare_seq_nbr { get; set; }
         public string scaleName { get; set; }
         public string cameraName { get; set; }
