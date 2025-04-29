@@ -18,6 +18,7 @@ using ComObject = TUDCoreService2._0.Utilities.ComObject;
 using System.Globalization;
 using Newtonsoft.Json;
 using System.Dynamic;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace TUDCoreService2._0.Scale_Reader
 {
@@ -32,7 +33,8 @@ namespace TUDCoreService2._0.Scale_Reader
     {
 
         string _workStationName = string.Empty;
-        int _workStationId;
+        long _workStationId;
+        long _scaleId;
         private NetworkStream _networkStream;
         private TcpClient _tcpClient;
         private UdpClient _udpClient;
@@ -56,7 +58,7 @@ namespace TUDCoreService2._0.Scale_Reader
             _aPI = aPI;
         }
 
-        public async Task<string> GetTcpScaleWeight(TudCommand command, string workStationName, int workStationId, bool delayResponse)
+        public async Task<string> GetTcpScaleWeight(TudCommand command, string workStationName, long workStationId, bool delayResponse)
         {
             var returnWeight = string.Empty;
 
@@ -83,7 +85,7 @@ namespace TUDCoreService2._0.Scale_Reader
                             CurrentWeight = "0";
                     }
 
-                    if (!string.IsNullOrEmpty(command.cameraName) && command.isFireCameraEnabled)
+                    if (!string.IsNullOrEmpty(command.cameraName) && !string.IsNullOrEmpty(command.yardId) && command.isFireCameraEnabled)
                     {
                         await TriggerCamera(command);
                     }
@@ -105,12 +107,13 @@ namespace TUDCoreService2._0.Scale_Reader
             return returnWeight;
         }
 
-        public async Task ProcessCommandHandler(TudCommand command, string workStationName, int workStationId, bool triggerUpdateCamera, bool delayResponse)
+        public async Task ProcessCommandHandler(TudCommand command, string workStationName, long workStationId, bool triggerUpdateCamera, bool delayResponse, long scaleId)
         {
             try
             {
                 _workStationName = workStationName;
                 _workStationId = workStationId;
+                _scaleId = scaleId;
 
                 var weightRead = await GetScaleWeight(command, delayResponse);
 
@@ -126,7 +129,7 @@ namespace TUDCoreService2._0.Scale_Reader
                         CurrentWeight = formattedWeightRead;
                     }
 
-                    if (!string.IsNullOrEmpty(command.cameraName) && triggerUpdateCamera && command.isFireCameraEnabled)
+                    if (!string.IsNullOrEmpty(command.cameraName) && !string.IsNullOrEmpty(command.yardId) && triggerUpdateCamera && command.isFireCameraEnabled)
                     {
                         await TriggerCamera(command);
                     }
@@ -158,7 +161,8 @@ namespace TUDCoreService2._0.Scale_Reader
                         CameraName = command.cameraName,
                         TicketNumber = command.ticket != null ? command.ticket.ticket_nbr : "",
                         EventCode = command.ticket != null ? command.ticket.event_code : "",
-                        Weight = CurrentWeight
+                        Weight = CurrentWeight,
+                        YardId = string.IsNullOrEmpty(command.yardId) ? Guid.Empty : Guid.Parse(command.yardId)
                     },
                     // YardId = yardId, //Need to discuss on this
                     BranchCode = command.ticket != null ? command.branch_code : "",
@@ -167,10 +171,11 @@ namespace TUDCoreService2._0.Scale_Reader
                     TicketNumber = command.ticket != null ? command.ticket_nbr : "",
                     CommodityName = command.ticket != null ? command.commodity : "",
                     TransactionType = command.ticket != null ? command.transaction_type : "",
-                    Weight = CurrentWeight
+                    Weight = CurrentWeight,
+                    YardId = command.yardId
                 };
 
-                LogEvents($"Firing camera '{request.CameraName}'");
+                LogEvents($"Firing camera for scale '{_scaleId}''{request.CameraName}'");
                 await _handleCamera.TriggerCamera(request, _workStationName, _workStationId);
             }
             catch (Exception)
@@ -938,17 +943,23 @@ namespace TUDCoreService2._0.Scale_Reader
             if (string.IsNullOrEmpty(CurrentWeight))
                 CurrentWeight = "0";
 
-            dynamic updateworkstationonScaleRead = new ExpandoObject();
-            updateworkstationonScaleRead.Error = _errorMessage;
-            updateworkstationonScaleRead.Scale = CurrentWeight;
-            var json = JsonConvert.SerializeObject(updateworkstationonScaleRead);
-            var updateWorkStation = new UpdateWorkStation() { command = json };
+            //dynamic updateworkstationonScaleRead = new ExpandoObject();
+            //updateworkstationonScaleRead.Error = _errorMessage;
+            //updateworkstationonScaleRead.Scale = CurrentWeight;
 
-            LogEvents($"Updating Scale Value : {JsonConvert.SerializeObject(updateWorkStation)}");
+            //dynamic updateScaleRead = new ExpandoObject();
+            //updateScaleRead.error = _errorMessage;
+            //updateScaleRead.weight = CurrentWeight;
+            //updateScaleRead.updated_at = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now, TimeZoneInfo.Local).ToString("yyyy/MM/dd HH:mm:ss.fff:ff tt");
+
+            //var json = JsonConvert.SerializeObject(updateScaleRead);
+            var updateScaleRead = new ScaleUpdate() { error = _errorMessage, weight = CurrentWeight, updated_at = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now, TimeZoneInfo.Local).ToString("yyyy/MM/dd HH:mm:ss.fff:ff tt") };
+
+            LogEvents($"Updating Scale Value for scale Id {_scaleId}: {JsonConvert.SerializeObject(updateScaleRead)}");
             LogEvents($"Update status {updateAPI}");
             if (updateAPI)
             {
-                await _aPI.PutRequest<UpdateWorkStation>(updateWorkStation, $"workstations/{_workStationId}");
+                await _aPI.PutRequest<ScaleUpdate>(updateScaleRead, $"scales/{_scaleId}");
             }
             //_errorMessage = string.Empty;
 
