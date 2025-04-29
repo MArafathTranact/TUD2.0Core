@@ -19,7 +19,7 @@ namespace TUDCoreService2._0.Camera
     public class HandleCamera : IHandleCamera
     {
         string _workStationName = string.Empty;
-        int _workStationId;
+        long _workStationId;
         private readonly ITUDSettings _tudSettings;
         private readonly IConfiguration _configuration;
         private readonly ICamera _camera;
@@ -36,7 +36,7 @@ namespace TUDCoreService2._0.Camera
             _cameraGroup = cameraGroup;
             _tudSettings = _configuration.GetSection("TUDSettings").Get<TUDSettings>();
         }
-        public async Task TriggerCamera(JpeggerCameraCaptureRequest request, string workStationName, int workStationId)
+        public async Task TriggerCamera(JpeggerCameraCaptureRequest request, string workStationName, long workStationId)
         {
             try
             {
@@ -440,7 +440,7 @@ namespace TUDCoreService2._0.Camera
                 LogExceptionEvents($"Exception at HandleCamera.PostMultiForm : Ticket Number ='{request.TicketNumber}' , Camera Name ='{cameraName}'", ex);
             }
         }
-        private void LogEvents(string input)
+        private void  LogEvents(string input)
         {
             _logger.LogWithNoLock($" Work Station '{_workStationName}' : {input}");
         }

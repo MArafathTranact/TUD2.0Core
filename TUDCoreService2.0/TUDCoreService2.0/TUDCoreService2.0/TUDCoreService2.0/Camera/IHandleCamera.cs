@@ -9,6 +9,6 @@ namespace TUDCoreService2._0.Camera
 {
     public interface IHandleCamera
     {
-        public Task TriggerCamera(JpeggerCameraCaptureRequest request, string workStationName, int workStationId);
+        public Task TriggerCamera(JpeggerCameraCaptureRequest request, string workStationName, long workStationId);
     }
 }
