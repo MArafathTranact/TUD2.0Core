@@ -21,6 +21,8 @@ using TUDCoreService2._0.Utilities.Interface;
 using TUDCoreService2._0.WorkStation;
 using static System.Collections.Specialized.BitVector32;
 using static System.Formats.Asn1.AsnWriter;
+using System.Collections.Concurrent;
+using System.Runtime.InteropServices;
 //using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace TUDCoreService2._0.WebSocket
@@ -37,7 +39,7 @@ namespace TUDCoreService2._0.WebSocket
         private string WorkStationIp;
         private string WorkStationPort;
         private string WorkStationName;
-        private int WorkStationId = 0;
+        private long WorkStationId = 0;
         private ClientWebSocket ws;
         private System.Timers.Timer refreshcameras = new System.Timers.Timer(1000 * 60 * 2);
         private System.Timers.Timer validateATMWebSocketPingPong = new System.Timers.Timer(1000 * 60 * 2);
@@ -53,6 +55,7 @@ namespace TUDCoreService2._0.WebSocket
         private ArrayList handlerList;
         private ArrayList socketList;
         private Socket listener;
+        private ConcurrentQueue<string> messageQueue = new ConcurrentQueue<string>();
         #endregion
 
         public WebSocketListener(
@@ -205,12 +208,13 @@ namespace TUDCoreService2._0.WebSocket
                 });
 
                 var receiving = Receiving(ws);
+                var dequeueMessage = DequeueSocketMessage();
                 var readConfig = ReadScaleSettingsFromLocalConfig();
                 if (listener == null)
                 {
                     var tcpListener = StartTcpListener();
 
-                    await Task.WhenAll(sending, receiving, tcpListener, readConfig);
+                    await Task.WhenAll(sending, receiving, tcpListener, readConfig, dequeueMessage);
                 }
                 else if (listener != null && listener.IsConnected())
                 {
@@ -261,100 +265,14 @@ namespace TUDCoreService2._0.WebSocket
 
                     if (result.MessageType == WebSocketMessageType.Text)
                     {
+                        PingPongTimeFromATMWebSocket = DateTime.Now;
                         var response = Encoding.UTF8.GetString(buffer, 0, result.Count);
 
-                        try
+                        if (!response.Contains("\"type\":\"ping\""))
                         {
-                            PingPongTimeFromATMWebSocket = DateTime.Now;
+                            messageQueue.Enqueue(response);
 
-                            if (response.ToLowerInvariant().Contains("ping"))
-                            {
-                                try
-                                {
-                                    if (!response.ToLowerInvariant().Contains("confirm_subscription") && response.ToLowerInvariant().Contains("ping"))
-                                    {
-                                        //LogEvents($"Received Ping message from Web Socket ... {response} ");
-                                        PingPongTimeFromATMWebSocket = DateTime.Now;
-                                        var sending = Task.Run(async () =>
-                                        {
-
-                                            var pongMessage = @"{""command"":""message"", ""identifier"":""{\""channel\"":\""WorkstationChannel\"",\""id\"":\""workstationId\""}"",""data"":""{\""action\"":\""receive\"",\""type\"":\""pong\"",\""workstation_id\"":\""workstationId\""}""}";
-                                            pongMessage = pongMessage.Replace("workstationId", WorkStationId.ToString());
-
-                                            var bytes = Encoding.UTF8.GetBytes(pongMessage);
-                                            await ws.SendAsync(new ArraySegment<byte>(bytes), WebSocketMessageType.Text, endOfMessage: true, cancellationToken: CancellationToken.None);
-                                            //LogEvents($"Sending Pong message to Web Socket ...{pongMessage} ");
-
-                                        });
-
-                                        await Task.WhenAll(sending);
-                                    }
-                                }
-                                catch (Exception)
-                                {
-
-
-                                }
-                            }
-                            else
-                            {
-                                LogEvents($"Original Message : {response}");
-                                var socket = JsonConvert.DeserializeObject<SocketMessage>(response);
-
-                                if (socket == null) { }
-                                else if (socket != null && socket.message == null) { }
-                                else if (socket != null && socket.message != null && socket.message.command != null && socket.message.command.ToLower().Contains("error")) { }
-                                else if (socket != null && socket.message != null && !string.IsNullOrEmpty(socket.message.command))
-                                {
-                                    var command = JsonConvert.DeserializeObject<TudCommand>(socket.message.command);
-                                    if (command != null && !string.IsNullOrEmpty(command.scaleName))
-                                    {
-                                        LogEvents($"Received Command '{socket.message.command}'");
-                                        LogEvents($"Command received to trigger Scale Reader '{command.scaleName}'");
-                                        PingPongTimeFromATMWebSocket = DateTime.Now;
-                                        if (!command.openClose)
-                                        {
-                                            var scaleName = command.id;
-                                            if (!_Scales.ContainsKey(scaleName))
-                                            {
-                                                IHandleScaleReader scaleReaderHandler = new HandleScaleReader(_handleCamera, _logger, _aPI);
-                                                _Scales.Add(scaleName, scaleReaderHandler);
-                                                scaleSettingsCommand.Add(command);
-                                                await WriteScaleInformationToConfigFile();
-                                                await scaleReaderHandler.ProcessCommandHandler(command, WorkStationName, WorkStationId, true, true);
-                                            }
-                                            else
-                                            {
-                                                if (_Scales.ContainsKey(scaleName))
-                                                {
-                                                    _Scales.TryGetValue(scaleName, out var scaleReaderHandler);
-                                                    if (scaleReaderHandler != null)
-                                                    {
-
-                                                        await scaleReaderHandler.ProcessCommandHandler(command, WorkStationName, WorkStationId, true, false);
-                                                    }
-                                                }
-                                            }
-                                        }
-                                        else
-                                        {
-                                            IHandleScaleReader scaleReaderHandler = new HandleScaleReader(_handleCamera, _logger, _aPI);
-                                            await scaleReaderHandler.ProcessCommandHandler(command, WorkStationName, WorkStationId, true, false);
-                                        }
-
-
-                                    }
-                                    else
-                                    {
-
-                                    }
-                                }
-                            }
-
-                        }
-                        catch (Exception ex)
-                        {
-                            _logger.LogExceptionWithNoLock($" Exception at Receiving", ex);
+                            LogEvents($"Enqueuing : {response}");
                         }
                     }
                     else if (result.MessageType == WebSocketMessageType.Binary)
@@ -380,6 +298,17 @@ namespace TUDCoreService2._0.WebSocket
                 }
 
             }
+            catch (OperationCanceledException canceledException)
+            {
+                var message = "";
+                if (canceledException.InnerException != null && !string.IsNullOrEmpty(canceledException.InnerException.Message))
+                {
+                    message += canceledException.InnerException.Message;
+                }
+                else
+                    message = canceledException.Message;
+                LogEvents($" {message}");
+            }
             catch (Exception ex)
             {
                 _logger.LogExceptionWithNoLock($" Work Station '{WorkStationName}' : Exception at WebSocketListener.Receiving.", ex);
@@ -394,17 +323,150 @@ namespace TUDCoreService2._0.WebSocket
                 if (ValidtWebSockettry)
                     await ConnectWebSocket();
             }
-            //finally
-            //{
-            //    if (ws != null)
-            //    {
-            //        //await ws.CloseOutputAsync(WebSocketCloseStatus.NormalClosure, "", CancellationToken.None);
-            //        ws.Abort();
-            //        ws.Dispose();
-            //        ws = null;
-            //        await Task.Delay(5000);
-            //    }
-            //}
+        }
+
+
+        private async Task DequeueSocketMessage()
+        {
+            try
+            {
+                while (ValidtWebSockettry)
+                {
+                    if (messageQueue.TryDequeue(out string message))
+                    {
+                        LogEvents($"Dequeuing : {message}");
+                        await ProcessDequeueMessage(message);
+                        await Task.Delay(300);
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogExceptionWithNoLock($" Work Station '{WorkStationName}' : Exception at WebSocketListener.DequeueSocketMessage.", ex);
+            }
+        }
+
+        private async Task ProcessDequeueMessage(string response)
+        {
+            try
+            {
+                try
+                {
+                    PingPongTimeFromATMWebSocket = DateTime.Now;
+
+                    if (response.ToLowerInvariant().Contains("ping"))
+                    {
+                        try
+                        {
+                            if (!response.ToLowerInvariant().Contains("confirm_subscription") && response.ToLowerInvariant().Contains("ping"))
+                            {
+                                //LogEvents($"Received Ping message from Web Socket ... {response} ");
+                                PingPongTimeFromATMWebSocket = DateTime.Now;
+                                var sending = Task.Run(async () =>
+                                {
+
+                                    var pongMessage = @"{""command"":""message"", ""identifier"":""{\""channel\"":\""WorkstationChannel\"",\""id\"":\""workstationId\""}"",""data"":""{\""action\"":\""receive\"",\""type\"":\""pong\"",\""workstation_id\"":\""workstationId\""}""}";
+                                    pongMessage = pongMessage.Replace("workstationId", WorkStationId.ToString());
+
+                                    var bytes = Encoding.UTF8.GetBytes(pongMessage);
+                                    await ws.SendAsync(new ArraySegment<byte>(bytes), WebSocketMessageType.Text, endOfMessage: true, cancellationToken: CancellationToken.None);
+                                    //LogEvents($"Sending Pong message to Web Socket ...{pongMessage} ");
+
+                                });
+
+                                await Task.WhenAll(sending);
+                            }
+                        }
+                        catch (Exception)
+                        {
+
+
+                        }
+                    }
+                    else
+                    {
+                        LogEvents($"Original Message : {response}");
+                        var socket = JsonConvert.DeserializeObject<SocketMessage>(response);
+
+                        if (socket == null) { }
+                        else if (socket != null && socket.message == null) { }
+                        else if (socket != null && socket.message != null && socket.message.command != null && socket.message.command.ToLower().Contains("error")) { }
+                        else if (socket != null && socket.message != null && !string.IsNullOrEmpty(socket.message.command))
+                        {
+                            var scaleCommand = JsonConvert.DeserializeObject<ScaleCommand>(socket.message.command);
+
+                            if (scaleCommand != null && scaleCommand.scale_id != 0)
+                            {
+                                LogEvents($"Fetching Scale information for Scale Id '{scaleCommand.scale_id}'");
+
+                                var scale = await GetScaleInformation(scaleCommand.scale_id.ToString());
+
+                                if (scale != null && !string.IsNullOrEmpty(scale.command))
+                                {
+                                    LogEvents($"Scale Command Message for Scale Id '{scaleCommand.scale_id}' : {scale.command}");
+                                    var command = JsonConvert.DeserializeObject<TudCommand>(scale.command);
+                                    if (command != null && !string.IsNullOrEmpty(command.scaleName))
+                                    {
+                                        LogEvents($"Received Command for Scale Id '{scaleCommand.scale_id}' : '{socket.message.command}'");
+                                        LogEvents($"Command received to trigger Scale Reader '{command.scaleName}' for Scale Id '{scaleCommand.scale_id}'");
+                                        PingPongTimeFromATMWebSocket = DateTime.Now;
+                                        if (!command.openClose)
+                                        {
+                                            var scaleName = command.id;
+                                            if (!_Scales.ContainsKey(scaleName))
+                                            {
+                                                IHandleScaleReader scaleReaderHandler = new HandleScaleReader(_handleCamera, _logger, _aPI);
+                                                _Scales.Add(scaleName, scaleReaderHandler);
+                                                scaleSettingsCommand.Add(command);
+                                                await WriteScaleInformationToConfigFile();
+                                                await scaleReaderHandler.ProcessCommandHandler(command, WorkStationName, WorkStationId, true, true, scaleCommand.scale_id);
+                                            }
+                                            else
+                                            {
+                                                if (_Scales.ContainsKey(scaleName))
+                                                {
+                                                    _Scales.TryGetValue(scaleName, out var scaleReaderHandler);
+                                                    if (scaleReaderHandler != null)
+                                                    {
+
+                                                        await scaleReaderHandler.ProcessCommandHandler(command, WorkStationName, WorkStationId, true, false, scaleCommand.scale_id);
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            IHandleScaleReader scaleReaderHandler = new HandleScaleReader(_handleCamera, _logger, _aPI);
+                                            await scaleReaderHandler.ProcessCommandHandler(command, WorkStationName, WorkStationId, true, false, scaleCommand.scale_id);
+                                        }
+                                    }
+                                    else
+                                    {
+
+                                    }
+                                }
+                                else
+                                    LogEvents($"Scale Command Message : Empty scale command received");
+                            }
+                        }
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogExceptionWithNoLock($" Exception at WebSocketListener.ProcessDequeueMessage", ex);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogExceptionWithNoLock($" Work Station '{WorkStationName}' : Exception at WebSocketListener.ProcessDequeueMessage.", ex);
+            }
+        }
+        private async Task<Scale> GetScaleInformation(string scaleId)
+        {
+            var scale = await _aPI.GetRequest<Scale>($"scales/{scaleId}");
+            return scale;
         }
 
         public async Task CloseWebSocket()
@@ -862,7 +924,7 @@ namespace TUDCoreService2._0.WebSocket
                         _Scales.Add(scaleName, scaleReaderHandler);
                         //scaleSettingsCommand.Add(command);
                         //await WriteScaleInformationToConfigFile();
-                        await scaleReaderHandler.ProcessCommandHandler(command, WorkStationName, WorkStationId, false, true);
+                        await scaleReaderHandler.ProcessCommandHandler(command, WorkStationName, WorkStationId, false, true, 0);
                     }
                     else
                     {
@@ -872,7 +934,7 @@ namespace TUDCoreService2._0.WebSocket
                             if (scaleReaderHandler != null)
                             {
 
-                                await scaleReaderHandler.ProcessCommandHandler(command, WorkStationName, WorkStationId, false, false);
+                                await scaleReaderHandler.ProcessCommandHandler(command, WorkStationName, WorkStationId, false, false, 0);
                             }
                         }
                     }
@@ -880,7 +942,7 @@ namespace TUDCoreService2._0.WebSocket
                 else
                 {
                     IHandleScaleReader scaleReaderHandler = new HandleScaleReader(_handleCamera, _logger, _aPI);
-                    await scaleReaderHandler.ProcessCommandHandler(command, WorkStationName, WorkStationId, false, false);
+                    await scaleReaderHandler.ProcessCommandHandler(command, WorkStationName, WorkStationId, false, false, 0);
                 }
             }
             catch (Exception ex)
