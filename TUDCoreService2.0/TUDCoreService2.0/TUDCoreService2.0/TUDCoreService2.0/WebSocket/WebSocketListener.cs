@@ -262,12 +262,12 @@ namespace TUDCoreService2._0.WebSocket
                 while (ValidtWebSockettry)
                 {
                     var result = await ws.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
+                    PingPongTimeFromATMWebSocket = DateTime.Now;
 
                     if (result.MessageType == WebSocketMessageType.Text)
                     {
-                        PingPongTimeFromATMWebSocket = DateTime.Now;
                         var response = Encoding.UTF8.GetString(buffer, 0, result.Count);
-
+                        //messageQueue.Enqueue(response);
                         if (!response.Contains("\"type\":\"ping\""))
                         {
                             messageQueue.Enqueue(response);
@@ -336,7 +336,7 @@ namespace TUDCoreService2._0.WebSocket
                     {
                         LogEvents($"Dequeuing : {message}");
                         await ProcessDequeueMessage(message);
-                        await Task.Delay(300);
+                        await Task.Delay(100);
                     }
 
                 }
@@ -362,20 +362,20 @@ namespace TUDCoreService2._0.WebSocket
                             if (!response.ToLowerInvariant().Contains("confirm_subscription") && response.ToLowerInvariant().Contains("ping"))
                             {
                                 //LogEvents($"Received Ping message from Web Socket ... {response} ");
-                                PingPongTimeFromATMWebSocket = DateTime.Now;
-                                var sending = Task.Run(async () =>
-                                {
+                                //Need to work on this commented later....
+                                //var sending = Task.Run(async () =>
+                                //{
 
-                                    var pongMessage = @"{""command"":""message"", ""identifier"":""{\""channel\"":\""WorkstationChannel\"",\""id\"":\""workstationId\""}"",""data"":""{\""action\"":\""receive\"",\""type\"":\""pong\"",\""workstation_id\"":\""workstationId\""}""}";
-                                    pongMessage = pongMessage.Replace("workstationId", WorkStationId.ToString());
+                                //    var pongMessage = @"{""command"":""message"", ""identifier"":""{\""channel\"":\""WorkstationChannel\"",\""id\"":\""workstationId\""}"",""data"":""{\""action\"":\""receive\"",\""type\"":\""pong\"",\""workstation_id\"":\""workstationId\""}""}";
+                                //    pongMessage = pongMessage.Replace("workstationId", WorkStationId.ToString());
 
-                                    var bytes = Encoding.UTF8.GetBytes(pongMessage);
-                                    await ws.SendAsync(new ArraySegment<byte>(bytes), WebSocketMessageType.Text, endOfMessage: true, cancellationToken: CancellationToken.None);
-                                    //LogEvents($"Sending Pong message to Web Socket ...{pongMessage} ");
+                                //    var bytes = Encoding.UTF8.GetBytes(pongMessage);
+                                //    await ws.SendAsync(new ArraySegment<byte>(bytes), WebSocketMessageType.Text, endOfMessage: true, cancellationToken: CancellationToken.None);
+                                //    //LogEvents($"Sending Pong message to Web Socket ...{pongMessage} ");
 
-                                });
+                                //});
 
-                                await Task.WhenAll(sending);
+                                //await Task.WhenAll(sending);
                             }
                         }
                         catch (Exception)
@@ -463,6 +463,7 @@ namespace TUDCoreService2._0.WebSocket
                 _logger.LogExceptionWithNoLock($" Work Station '{WorkStationName}' : Exception at WebSocketListener.ProcessDequeueMessage.", ex);
             }
         }
+
         private async Task<Scale> GetScaleInformation(string scaleId)
         {
             var scale = await _aPI.GetRequest<Scale>($"scales/{scaleId}");
