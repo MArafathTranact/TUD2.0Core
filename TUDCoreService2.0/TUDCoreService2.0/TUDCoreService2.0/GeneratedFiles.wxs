@@ -1,0 +1,402 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="INSTALLFOLDER">
+            <Component Id="cmpA0863526952F7834E7C922F065E4C8A8" Guid="08E44487-5D6B-4D0C-AAB2-9BA3B91E1860">
+                <File Id="filC04B02D0CCC2D5CCC1013B35DE86DB29" KeyPath="yes" Source="$(var.PublishDir)\appsettings.Development.json" />
+            </Component>
+            <Component Id="cmpF82FCA80BBAF44D285C97F10993DEEE6" Guid="B3BF5D3A-3F53-4281-88CD-9230A96FDBFF">
+                <File Id="fil840B80AC19861C7F9F04FBDCFAE331CE" KeyPath="yes" Source="$(var.PublishDir)\appsettings.json" />
+            </Component>
+            <Component Id="cmpDC19BA21EFF423B27F8787A2AB8F2B3C" Guid="12781BB3-70F2-4B3E-958B-B72A4D9A108C">
+                <File Id="filF6767F9D22B6D46DD3A2FC798B5F23DE" KeyPath="yes" Source="$(var.PublishDir)\Microsoft.Extensions.Configuration.Abstractions.dll" />
+            </Component>
+            <Component Id="cmp85A16DDDD438C8839C302EEFF54E8E0C" Guid="A4F4E890-741C-49BC-9537-29F97387A047">
+                <File Id="fil52FC3D526CBD9DC330C6FE3380563F0C" KeyPath="yes" Source="$(var.PublishDir)\Microsoft.Extensions.Configuration.Binder.dll" />
+            </Component>
+            <Component Id="cmp4A61E3F01E16F7C35D22D304DE7C3D7D" Guid="ED10B6FB-0697-4D21-B707-296C09467851">
+                <File Id="filB3B34A4CDA6A327AC31CAD64389BC80C" KeyPath="yes" Source="$(var.PublishDir)\Microsoft.Extensions.Configuration.CommandLine.dll" />
+            </Component>
+            <Component Id="cmpC2B3CC4C105FBF588A9EBBD45742C349" Guid="EB6BBC1A-AFCE-4A7D-8963-6A72DB975325">
+                <File Id="filE9F345539532616C2BEF86BE1CEB83E2" KeyPath="yes" Source="$(var.PublishDir)\Microsoft.Extensions.Configuration.dll" />
+            </Component>
+            <Component Id="cmp695DF09F0E9EE30558F8C6D16553F843" Guid="A26B6158-21B1-4638-8A96-D10EEE07A703">
+                <File Id="filEAA27D91AD78E3FCD8BA846C92752BAA" KeyPath="yes" Source="$(var.PublishDir)\Microsoft.Extensions.Configuration.EnvironmentVariables.dll" />
+            </Component>
+            <Component Id="cmp0F72FDFC2B5DABBEED0952957424C516" Guid="028605B3-C12A-423F-A0D1-6442C665BF90">
+                <File Id="fil732B9D1BB8B2BA629B3802CB721B7E55" KeyPath="yes" Source="$(var.PublishDir)\Microsoft.Extensions.Configuration.FileExtensions.dll" />
+            </Component>
+            <Component Id="cmp191446DEBB621CC91C2B2E713F085F01" Guid="EE45773E-55B5-4898-992E-9F452FC0FB3D">
+                <File Id="fil0CC9532B169036B73874B81A5F9C8F97" KeyPath="yes" Source="$(var.PublishDir)\Microsoft.Extensions.Configuration.Json.dll" />
+            </Component>
+            <Component Id="cmp306F083BB44F8AEA42DD7E2AB9CD82C2" Guid="F14FFD37-1500-488C-91C1-7BD464B1D8D8">
+                <File Id="fil867F166CDED00C699F6B217A4FC42957" KeyPath="yes" Source="$(var.PublishDir)\Microsoft.Extensions.Configuration.UserSecrets.dll" />
+            </Component>
+            <Component Id="cmp198468A4AE980CD6955CB6EB86083726" Guid="1647A590-9514-4F4F-AB99-1005C52CF553">
+                <File Id="fil02E4E4D119BFC4831CEA5A71F1288443" KeyPath="yes" Source="$(var.PublishDir)\Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+            </Component>
+            <Component Id="cmp493E9BC44885B6BC5C57BDB1302C40D9" Guid="21986649-0DFC-447D-9333-908495E3C5B0">
+                <File Id="filA40291A4FBD4719B6995DEB783A39A65" KeyPath="yes" Source="$(var.PublishDir)\Microsoft.Extensions.DependencyInjection.dll" />
+            </Component>
+            <Component Id="cmpD71177CD3BCD768F1F74211E6E2E353D" Guid="7507CE6C-8FCC-48FD-93F5-14ACE346C441">
+                <File Id="filD6E38AF71AD3567AEFAB7A283BC7D3C6" KeyPath="yes" Source="$(var.PublishDir)\Microsoft.Extensions.Diagnostics.Abstractions.dll" />
+            </Component>
+            <Component Id="cmpBB58932E81784E90600A3B2DEB2E2D6A" Guid="C1A62F8A-16D7-49B6-80A8-31F7A3497E5C">
+                <File Id="filBFD8FDE91AE486857624064B5808A0C1" KeyPath="yes" Source="$(var.PublishDir)\Microsoft.Extensions.Diagnostics.dll" />
+            </Component>
+            <Component Id="cmp0209E8308C907CAD5474151F7C6836F5" Guid="41BF5F70-009D-40D3-88FA-229D33EE8ECB">
+                <File Id="fil1036FDFADEB4E1F1FB133485A70A0DD4" KeyPath="yes" Source="$(var.PublishDir)\Microsoft.Extensions.FileProviders.Abstractions.dll" />
+            </Component>
+            <Component Id="cmp6361EE614B62630DD923390326EAF03C" Guid="1F242D48-9C8E-436D-AB49-95F549430FF9">
+                <File Id="fil1B3C0C67DC448F84DA45630529031E78" KeyPath="yes" Source="$(var.PublishDir)\Microsoft.Extensions.FileProviders.Physical.dll" />
+            </Component>
+            <Component Id="cmp1E5A63B6F657DD090469973A1C3D2C59" Guid="F2BC2443-248D-42B8-B009-680569CC63DE">
+                <File Id="fil931DDF3633F4CABF1422600B672C70DE" KeyPath="yes" Source="$(var.PublishDir)\Microsoft.Extensions.FileSystemGlobbing.dll" />
+            </Component>
+            <Component Id="cmpB96239F931804879A085E057C6E72657" Guid="25C70EB9-65C5-4DD1-9D5D-15E3251D40F7">
+                <File Id="filFE47041DFF0F714E6C7D801D2D2C140A" KeyPath="yes" Source="$(var.PublishDir)\Microsoft.Extensions.Hosting.Abstractions.dll" />
+            </Component>
+            <Component Id="cmp1ED5B5DCD1725E69F71E98865BCEAAB9" Guid="F85DE055-D77F-4701-B26A-3ADDA6438017">
+                <File Id="filD0586081609434942EDB53299EF52D71" KeyPath="yes" Source="$(var.PublishDir)\Microsoft.Extensions.Hosting.dll" />
+            </Component>
+            <Component Id="cmpFD16E629F3B1C17887ACD3B97583CB13" Guid="5F7D6C5F-4E67-4FC5-847F-D99C8C48E0B6">
+                <File Id="filEFB595E81CA62CF58EF39208C76F7F06" KeyPath="yes" Source="$(var.PublishDir)\Microsoft.Extensions.Hosting.WindowsServices.dll" />
+            </Component>
+            <Component Id="cmpC656E9D9806FE126507981A789C77410" Guid="6C75EE59-AFC5-4C7F-BF02-89D3F4EE8FE8">
+                <File Id="fil0BFEDC0364DF675C2291A58519F94A92" KeyPath="yes" Source="$(var.PublishDir)\Microsoft.Extensions.Http.dll" />
+            </Component>
+            <Component Id="cmpCCCABDFD373BD04A84055351AE3256B2" Guid="F4D38A1C-49E1-4236-A672-3DC9FD09F064">
+                <File Id="filCC4BA21421B3A4F1226A863E11157108" KeyPath="yes" Source="$(var.PublishDir)\Microsoft.Extensions.Http.Polly.dll" />
+            </Component>
+            <Component Id="cmp8C674FD6A69988A60A77A4CEE0F53781" Guid="90202033-043A-4AF0-8C9D-64D48EE80C61">
+                <File Id="fil72342637E9F74EE945317D4603CEBA2F" KeyPath="yes" Source="$(var.PublishDir)\Microsoft.Extensions.Logging.Abstractions.dll" />
+            </Component>
+            <Component Id="cmp9B211F39744547E733F9040027FF1A3B" Guid="298DF148-9082-4FAB-B033-6816BF0CF257">
+                <File Id="filC6D4BDB43CC150D24C5E1BDE9EB552F7" KeyPath="yes" Source="$(var.PublishDir)\Microsoft.Extensions.Logging.Configuration.dll" />
+            </Component>
+            <Component Id="cmp60BA3AB6448C5A0208FEDA4F886EDDE8" Guid="03689DD2-EB6B-4BF2-A418-B2C545B0BA08">
+                <File Id="filA347F900C2828DE2F50C35BDA8F5CE44" KeyPath="yes" Source="$(var.PublishDir)\Microsoft.Extensions.Logging.Console.dll" />
+            </Component>
+            <Component Id="cmp591239506CAB75D331DE5D90D6713057" Guid="37AD46D1-4C81-4E4A-A384-CE4A0595D686">
+                <File Id="fil1CB90B4A15160F351B5EB5D2DED1B050" KeyPath="yes" Source="$(var.PublishDir)\Microsoft.Extensions.Logging.Debug.dll" />
+            </Component>
+            <Component Id="cmp835034F744990576E31C2DBC7C9293BF" Guid="C3804844-04D7-4D9F-B6E9-0883E37B1F12">
+                <File Id="fil71DD299EE7649E964200A4127797D1C0" KeyPath="yes" Source="$(var.PublishDir)\Microsoft.Extensions.Logging.dll" />
+            </Component>
+            <Component Id="cmp3D087D80699D13BCB013A8533A2C0DCF" Guid="B14970A4-A53E-4461-872B-F36BB0EF6990">
+                <File Id="filA050696110EF79DCA5E76B6513E54FB2" KeyPath="yes" Source="$(var.PublishDir)\Microsoft.Extensions.Logging.EventLog.dll" />
+            </Component>
+            <Component Id="cmp63493859708989EE0F11F5DF7347E61A" Guid="27472AD6-E5EB-456A-AD3A-1CC36CBA5689">
+                <File Id="filBF2F378F474FFE2ABA30A373F8BB00C0" KeyPath="yes" Source="$(var.PublishDir)\Microsoft.Extensions.Logging.EventSource.dll" />
+            </Component>
+            <Component Id="cmpF5D2F2D913749765205DC918BD981CD0" Guid="74CA0FB7-3D9F-406F-8CBB-F80E3A685866">
+                <File Id="fil3F5CF8D11C3311A25D3082B99A709528" KeyPath="yes" Source="$(var.PublishDir)\Microsoft.Extensions.Options.ConfigurationExtensions.dll" />
+            </Component>
+            <Component Id="cmp3279C150AE8DF554FD7EEE2085672A2B" Guid="C1558E31-D72F-441F-8819-3C3D4AD5D3C4">
+                <File Id="filA8D1F5D61FD7BC25099F707CBF5B1F24" KeyPath="yes" Source="$(var.PublishDir)\Microsoft.Extensions.Options.dll" />
+            </Component>
+            <Component Id="cmp946145B53A7DCDFA822B0EFD2314FAB6" Guid="D01591F9-8774-4D92-944B-440071253EEA">
+                <File Id="fil773F29942324AAB2A7E1977E1AC63609" KeyPath="yes" Source="$(var.PublishDir)\Microsoft.Extensions.Primitives.dll" />
+            </Component>
+            <Component Id="cmpE679161C4F75F1B7C7AE4047591EBF60" Guid="3C973C30-554E-4FD2-BED2-E7701D1CC041">
+                <File Id="filA733CFEDBBAEF5FB0253E58062369BFE" KeyPath="yes" Source="$(var.PublishDir)\Newtonsoft.Json.Bson.dll" />
+            </Component>
+            <Component Id="cmpBC4FC00A26E7D32479D42D3411317FC5" Guid="698D514F-B602-4FB2-AC64-2CF2960A4846">
+                <File Id="fil90A8AAD9FC612906D405476D61CEA3F4" KeyPath="yes" Source="$(var.PublishDir)\Newtonsoft.Json.dll" />
+            </Component>
+            <Component Id="cmp42CE9AE95732AA34478329FB9DE90B9C" Guid="421982F3-E93B-4577-AD81-D87BBAF3A044">
+                <File Id="filD7AACEE505C0A6D9F0953957C6B91C28" KeyPath="yes" Source="$(var.PublishDir)\NLog.config" />
+            </Component>
+            <Component Id="cmpB7F1EBE42DCB1051B92D42C1EF84E2F9" Guid="8216188B-9528-4398-BF86-52E0517F0FB7">
+                <File Id="filA09ADF42C6343B9B7C7780D266455CC4" KeyPath="yes" Source="$(var.PublishDir)\NLog.dll" />
+            </Component>
+            <Component Id="cmp4387649DAD23EB7D89C77DC64718A932" Guid="AC9BB75F-9505-4A71-9708-661209425BA6">
+                <File Id="fil57B300FDC47BDE7F084BFB62C027FAB8" KeyPath="yes" Source="$(var.PublishDir)\NLog.Extensions.Logging.dll" />
+            </Component>
+            <Component Id="cmp0F39F7990DAEB7557215BDF3623566E8" Guid="3F57F2AF-BA03-4A10-9BF6-75E0A2931FE3">
+                <File Id="filB251AA0C4A81C58DF2B34EF43009B1ED" KeyPath="yes" Source="$(var.PublishDir)\NLog.Loki.dll" />
+            </Component>
+            <Component Id="cmp57D17D6F6AC98A3AD60AE14211A59A0F" Guid="B0AF1DB5-D930-47A2-A252-6A2B2E053D73">
+                <Class Id="{24AC182D-7285-3302-824E-5D7CE576159B}" Context="InprocServer32" Description="Polly.Timeout.TimeoutRejectedException" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="Polly.Timeout.TimeoutRejectedException" Description="Polly.Timeout.TimeoutRejectedException" />
+                </Class>
+                <Class Id="{529CBBDA-B49E-3838-B4A8-E8FFE0D807DF}" Context="InprocServer32" Description="Polly.Context" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="Polly.Context" Description="Polly.Context" />
+                </Class>
+                <Class Id="{80222225-7B73-3358-9FB5-C6D4438EAE78}" Context="InprocServer32" Description="Polly.Caching.ContextualTtl" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="Polly.Caching.ContextualTtl" Description="Polly.Caching.ContextualTtl" />
+                </Class>
+                <Class Id="{A3746E02-CB8F-3386-A152-FA227EB2FBAA}" Context="InprocServer32" Description="Polly.Bulkhead.BulkheadRejectedException" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="Polly.Bulkhead.BulkheadRejectedException" Description="Polly.Bulkhead.BulkheadRejectedException" />
+                </Class>
+                <Class Id="{A59E3FE9-E651-3548-AD93-0B1DDD8A153D}" Context="InprocServer32" Description="Polly.Caching.DefaultCacheKeyStrategy" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="Polly.Caching.DefaultCacheKeyStrategy" Description="Polly.Caching.DefaultCacheKeyStrategy" />
+                </Class>
+                <Class Id="{A8A9262B-F8DE-3037-9C03-E2DB66C38B8A}" Context="InprocServer32" Description="Polly.Registry.PolicyRegistry" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="Polly.Registry.PolicyRegistry" Description="Polly.Registry.PolicyRegistry" />
+                </Class>
+                <Class Id="{BDEFF2D4-0643-3F64-B4C0-B8B79EB7C021}" Context="InprocServer32" Description="Polly.CircuitBreaker.BrokenCircuitException" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="Polly.CircuitBreaker.BrokenCircuitException" Description="Polly.CircuitBreaker.BrokenCircuitException" />
+                </Class>
+                <Class Id="{FFEB666E-2A5A-3F4D-BEE4-8561FBAE3AA5}" Context="InprocServer32" Description="Polly.ExceptionPredicates" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="Polly.ExceptionPredicates" Description="Polly.ExceptionPredicates" />
+                </Class>
+                <File Id="fil96AB0A2FC278F3594C376F5CE0F64273" KeyPath="yes" Source="$(var.PublishDir)\Polly.dll" />
+                <ProgId Id="Record" />
+                <RegistryValue Root="HKCR" Key="CLSID\{24AC182D-7285-3302-824E-5D7CE576159B}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{24AC182D-7285-3302-824E-5D7CE576159B}\InprocServer32\7.0.0.0" Name="Class" Value="Polly.Timeout.TimeoutRejectedException" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{24AC182D-7285-3302-824E-5D7CE576159B}\InprocServer32\7.0.0.0" Name="Assembly" Value="Polly, Version=7.0.0.0, Culture=neutral, PublicKeyToken=c8a3ffc3f8f825cc" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{24AC182D-7285-3302-824E-5D7CE576159B}\InprocServer32\7.0.0.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{24AC182D-7285-3302-824E-5D7CE576159B}\InprocServer32\7.0.0.0" Name="CodeBase" Value="file:///[#fil96AB0A2FC278F3594C376F5CE0F64273]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{24AC182D-7285-3302-824E-5D7CE576159B}\InprocServer32" Name="Class" Value="Polly.Timeout.TimeoutRejectedException" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{24AC182D-7285-3302-824E-5D7CE576159B}\InprocServer32" Name="Assembly" Value="Polly, Version=7.0.0.0, Culture=neutral, PublicKeyToken=c8a3ffc3f8f825cc" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{24AC182D-7285-3302-824E-5D7CE576159B}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{24AC182D-7285-3302-824E-5D7CE576159B}\InprocServer32" Name="CodeBase" Value="file:///[#fil96AB0A2FC278F3594C376F5CE0F64273]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{529CBBDA-B49E-3838-B4A8-E8FFE0D807DF}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{529CBBDA-B49E-3838-B4A8-E8FFE0D807DF}\InprocServer32\7.0.0.0" Name="Class" Value="Polly.Context" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{529CBBDA-B49E-3838-B4A8-E8FFE0D807DF}\InprocServer32\7.0.0.0" Name="Assembly" Value="Polly, Version=7.0.0.0, Culture=neutral, PublicKeyToken=c8a3ffc3f8f825cc" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{529CBBDA-B49E-3838-B4A8-E8FFE0D807DF}\InprocServer32\7.0.0.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{529CBBDA-B49E-3838-B4A8-E8FFE0D807DF}\InprocServer32\7.0.0.0" Name="CodeBase" Value="file:///[#fil96AB0A2FC278F3594C376F5CE0F64273]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{529CBBDA-B49E-3838-B4A8-E8FFE0D807DF}\InprocServer32" Name="Class" Value="Polly.Context" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{529CBBDA-B49E-3838-B4A8-E8FFE0D807DF}\InprocServer32" Name="Assembly" Value="Polly, Version=7.0.0.0, Culture=neutral, PublicKeyToken=c8a3ffc3f8f825cc" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{529CBBDA-B49E-3838-B4A8-E8FFE0D807DF}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{529CBBDA-B49E-3838-B4A8-E8FFE0D807DF}\InprocServer32" Name="CodeBase" Value="file:///[#fil96AB0A2FC278F3594C376F5CE0F64273]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{80222225-7B73-3358-9FB5-C6D4438EAE78}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{80222225-7B73-3358-9FB5-C6D4438EAE78}\InprocServer32\7.0.0.0" Name="Class" Value="Polly.Caching.ContextualTtl" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{80222225-7B73-3358-9FB5-C6D4438EAE78}\InprocServer32\7.0.0.0" Name="Assembly" Value="Polly, Version=7.0.0.0, Culture=neutral, PublicKeyToken=c8a3ffc3f8f825cc" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{80222225-7B73-3358-9FB5-C6D4438EAE78}\InprocServer32\7.0.0.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{80222225-7B73-3358-9FB5-C6D4438EAE78}\InprocServer32\7.0.0.0" Name="CodeBase" Value="file:///[#fil96AB0A2FC278F3594C376F5CE0F64273]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{80222225-7B73-3358-9FB5-C6D4438EAE78}\InprocServer32" Name="Class" Value="Polly.Caching.ContextualTtl" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{80222225-7B73-3358-9FB5-C6D4438EAE78}\InprocServer32" Name="Assembly" Value="Polly, Version=7.0.0.0, Culture=neutral, PublicKeyToken=c8a3ffc3f8f825cc" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{80222225-7B73-3358-9FB5-C6D4438EAE78}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{80222225-7B73-3358-9FB5-C6D4438EAE78}\InprocServer32" Name="CodeBase" Value="file:///[#fil96AB0A2FC278F3594C376F5CE0F64273]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A3746E02-CB8F-3386-A152-FA227EB2FBAA}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A3746E02-CB8F-3386-A152-FA227EB2FBAA}\InprocServer32\7.0.0.0" Name="Class" Value="Polly.Bulkhead.BulkheadRejectedException" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A3746E02-CB8F-3386-A152-FA227EB2FBAA}\InprocServer32\7.0.0.0" Name="Assembly" Value="Polly, Version=7.0.0.0, Culture=neutral, PublicKeyToken=c8a3ffc3f8f825cc" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A3746E02-CB8F-3386-A152-FA227EB2FBAA}\InprocServer32\7.0.0.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A3746E02-CB8F-3386-A152-FA227EB2FBAA}\InprocServer32\7.0.0.0" Name="CodeBase" Value="file:///[#fil96AB0A2FC278F3594C376F5CE0F64273]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A3746E02-CB8F-3386-A152-FA227EB2FBAA}\InprocServer32" Name="Class" Value="Polly.Bulkhead.BulkheadRejectedException" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A3746E02-CB8F-3386-A152-FA227EB2FBAA}\InprocServer32" Name="Assembly" Value="Polly, Version=7.0.0.0, Culture=neutral, PublicKeyToken=c8a3ffc3f8f825cc" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A3746E02-CB8F-3386-A152-FA227EB2FBAA}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A3746E02-CB8F-3386-A152-FA227EB2FBAA}\InprocServer32" Name="CodeBase" Value="file:///[#fil96AB0A2FC278F3594C376F5CE0F64273]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A59E3FE9-E651-3548-AD93-0B1DDD8A153D}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A59E3FE9-E651-3548-AD93-0B1DDD8A153D}\InprocServer32\7.0.0.0" Name="Class" Value="Polly.Caching.DefaultCacheKeyStrategy" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A59E3FE9-E651-3548-AD93-0B1DDD8A153D}\InprocServer32\7.0.0.0" Name="Assembly" Value="Polly, Version=7.0.0.0, Culture=neutral, PublicKeyToken=c8a3ffc3f8f825cc" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A59E3FE9-E651-3548-AD93-0B1DDD8A153D}\InprocServer32\7.0.0.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A59E3FE9-E651-3548-AD93-0B1DDD8A153D}\InprocServer32\7.0.0.0" Name="CodeBase" Value="file:///[#fil96AB0A2FC278F3594C376F5CE0F64273]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A59E3FE9-E651-3548-AD93-0B1DDD8A153D}\InprocServer32" Name="Class" Value="Polly.Caching.DefaultCacheKeyStrategy" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A59E3FE9-E651-3548-AD93-0B1DDD8A153D}\InprocServer32" Name="Assembly" Value="Polly, Version=7.0.0.0, Culture=neutral, PublicKeyToken=c8a3ffc3f8f825cc" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A59E3FE9-E651-3548-AD93-0B1DDD8A153D}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A59E3FE9-E651-3548-AD93-0B1DDD8A153D}\InprocServer32" Name="CodeBase" Value="file:///[#fil96AB0A2FC278F3594C376F5CE0F64273]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A8A9262B-F8DE-3037-9C03-E2DB66C38B8A}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A8A9262B-F8DE-3037-9C03-E2DB66C38B8A}\InprocServer32\7.0.0.0" Name="Class" Value="Polly.Registry.PolicyRegistry" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A8A9262B-F8DE-3037-9C03-E2DB66C38B8A}\InprocServer32\7.0.0.0" Name="Assembly" Value="Polly, Version=7.0.0.0, Culture=neutral, PublicKeyToken=c8a3ffc3f8f825cc" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A8A9262B-F8DE-3037-9C03-E2DB66C38B8A}\InprocServer32\7.0.0.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A8A9262B-F8DE-3037-9C03-E2DB66C38B8A}\InprocServer32\7.0.0.0" Name="CodeBase" Value="file:///[#fil96AB0A2FC278F3594C376F5CE0F64273]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A8A9262B-F8DE-3037-9C03-E2DB66C38B8A}\InprocServer32" Name="Class" Value="Polly.Registry.PolicyRegistry" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A8A9262B-F8DE-3037-9C03-E2DB66C38B8A}\InprocServer32" Name="Assembly" Value="Polly, Version=7.0.0.0, Culture=neutral, PublicKeyToken=c8a3ffc3f8f825cc" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A8A9262B-F8DE-3037-9C03-E2DB66C38B8A}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A8A9262B-F8DE-3037-9C03-E2DB66C38B8A}\InprocServer32" Name="CodeBase" Value="file:///[#fil96AB0A2FC278F3594C376F5CE0F64273]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{BDEFF2D4-0643-3F64-B4C0-B8B79EB7C021}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{BDEFF2D4-0643-3F64-B4C0-B8B79EB7C021}\InprocServer32\7.0.0.0" Name="Class" Value="Polly.CircuitBreaker.BrokenCircuitException" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{BDEFF2D4-0643-3F64-B4C0-B8B79EB7C021}\InprocServer32\7.0.0.0" Name="Assembly" Value="Polly, Version=7.0.0.0, Culture=neutral, PublicKeyToken=c8a3ffc3f8f825cc" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{BDEFF2D4-0643-3F64-B4C0-B8B79EB7C021}\InprocServer32\7.0.0.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{BDEFF2D4-0643-3F64-B4C0-B8B79EB7C021}\InprocServer32\7.0.0.0" Name="CodeBase" Value="file:///[#fil96AB0A2FC278F3594C376F5CE0F64273]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{BDEFF2D4-0643-3F64-B4C0-B8B79EB7C021}\InprocServer32" Name="Class" Value="Polly.CircuitBreaker.BrokenCircuitException" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{BDEFF2D4-0643-3F64-B4C0-B8B79EB7C021}\InprocServer32" Name="Assembly" Value="Polly, Version=7.0.0.0, Culture=neutral, PublicKeyToken=c8a3ffc3f8f825cc" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{BDEFF2D4-0643-3F64-B4C0-B8B79EB7C021}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{BDEFF2D4-0643-3F64-B4C0-B8B79EB7C021}\InprocServer32" Name="CodeBase" Value="file:///[#fil96AB0A2FC278F3594C376F5CE0F64273]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{FFEB666E-2A5A-3F4D-BEE4-8561FBAE3AA5}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{FFEB666E-2A5A-3F4D-BEE4-8561FBAE3AA5}\InprocServer32\7.0.0.0" Name="Class" Value="Polly.ExceptionPredicates" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{FFEB666E-2A5A-3F4D-BEE4-8561FBAE3AA5}\InprocServer32\7.0.0.0" Name="Assembly" Value="Polly, Version=7.0.0.0, Culture=neutral, PublicKeyToken=c8a3ffc3f8f825cc" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{FFEB666E-2A5A-3F4D-BEE4-8561FBAE3AA5}\InprocServer32\7.0.0.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{FFEB666E-2A5A-3F4D-BEE4-8561FBAE3AA5}\InprocServer32\7.0.0.0" Name="CodeBase" Value="file:///[#fil96AB0A2FC278F3594C376F5CE0F64273]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{FFEB666E-2A5A-3F4D-BEE4-8561FBAE3AA5}\InprocServer32" Name="Class" Value="Polly.ExceptionPredicates" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{FFEB666E-2A5A-3F4D-BEE4-8561FBAE3AA5}\InprocServer32" Name="Assembly" Value="Polly, Version=7.0.0.0, Culture=neutral, PublicKeyToken=c8a3ffc3f8f825cc" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{FFEB666E-2A5A-3F4D-BEE4-8561FBAE3AA5}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{FFEB666E-2A5A-3F4D-BEE4-8561FBAE3AA5}\InprocServer32" Name="CodeBase" Value="file:///[#fil96AB0A2FC278F3594C376F5CE0F64273]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{1BF0BD5F-2A56-3FB9-A097-316F9B848638}\7.0.0.0" Name="Class" Value="Polly.Caching.Ttl" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{1BF0BD5F-2A56-3FB9-A097-316F9B848638}\7.0.0.0" Name="Assembly" Value="Polly, Version=7.0.0.0, Culture=neutral, PublicKeyToken=c8a3ffc3f8f825cc" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{1BF0BD5F-2A56-3FB9-A097-316F9B848638}\7.0.0.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{1BF0BD5F-2A56-3FB9-A097-316F9B848638}\7.0.0.0" Name="CodeBase" Value="file:///[#fil96AB0A2FC278F3594C376F5CE0F64273]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{4E2EAD8A-020B-35F9-AA39-57E4D9F60493}\7.0.0.0" Name="Class" Value="Polly.FaultType" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{4E2EAD8A-020B-35F9-AA39-57E4D9F60493}\7.0.0.0" Name="Assembly" Value="Polly, Version=7.0.0.0, Culture=neutral, PublicKeyToken=c8a3ffc3f8f825cc" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{4E2EAD8A-020B-35F9-AA39-57E4D9F60493}\7.0.0.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{4E2EAD8A-020B-35F9-AA39-57E4D9F60493}\7.0.0.0" Name="CodeBase" Value="file:///[#fil96AB0A2FC278F3594C376F5CE0F64273]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{503F7441-17DC-37C7-9E7E-CFB61E08FDBB}\7.0.0.0" Name="Class" Value="Polly.ExceptionType" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{503F7441-17DC-37C7-9E7E-CFB61E08FDBB}\7.0.0.0" Name="Assembly" Value="Polly, Version=7.0.0.0, Culture=neutral, PublicKeyToken=c8a3ffc3f8f825cc" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{503F7441-17DC-37C7-9E7E-CFB61E08FDBB}\7.0.0.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{503F7441-17DC-37C7-9E7E-CFB61E08FDBB}\7.0.0.0" Name="CodeBase" Value="file:///[#fil96AB0A2FC278F3594C376F5CE0F64273]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{91EF402C-6CAB-3913-A7B5-7914DE6CA363}\7.0.0.0" Name="Class" Value="Polly.CircuitBreaker.CircuitState" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{91EF402C-6CAB-3913-A7B5-7914DE6CA363}\7.0.0.0" Name="Assembly" Value="Polly, Version=7.0.0.0, Culture=neutral, PublicKeyToken=c8a3ffc3f8f825cc" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{91EF402C-6CAB-3913-A7B5-7914DE6CA363}\7.0.0.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{91EF402C-6CAB-3913-A7B5-7914DE6CA363}\7.0.0.0" Name="CodeBase" Value="file:///[#fil96AB0A2FC278F3594C376F5CE0F64273]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{A1495D9F-D937-3AD9-9384-EA25A3F1C8C4}\7.0.0.0" Name="Class" Value="Polly.Timeout.TimeoutStrategy" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{A1495D9F-D937-3AD9-9384-EA25A3F1C8C4}\7.0.0.0" Name="Assembly" Value="Polly, Version=7.0.0.0, Culture=neutral, PublicKeyToken=c8a3ffc3f8f825cc" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{A1495D9F-D937-3AD9-9384-EA25A3F1C8C4}\7.0.0.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{A1495D9F-D937-3AD9-9384-EA25A3F1C8C4}\7.0.0.0" Name="CodeBase" Value="file:///[#fil96AB0A2FC278F3594C376F5CE0F64273]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{F5E68E75-DEA9-365C-8C5E-F51875EE358A}\7.0.0.0" Name="Class" Value="Polly.OutcomeType" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{F5E68E75-DEA9-365C-8C5E-F51875EE358A}\7.0.0.0" Name="Assembly" Value="Polly, Version=7.0.0.0, Culture=neutral, PublicKeyToken=c8a3ffc3f8f825cc" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{F5E68E75-DEA9-365C-8C5E-F51875EE358A}\7.0.0.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{F5E68E75-DEA9-365C-8C5E-F51875EE358A}\7.0.0.0" Name="CodeBase" Value="file:///[#fil96AB0A2FC278F3594C376F5CE0F64273]" Type="string" Action="write" />
+            </Component>
+            <Component Id="cmp08C6BF4A980CDB0662CA93DA389333A1" Guid="33DBAF9F-FB9F-4ADC-8EFB-FD9392649375">
+                <File Id="filC25E0581F918E265A0BB91B6C294F7D7" KeyPath="yes" Source="$(var.PublishDir)\Polly.Extensions.Http.dll" />
+            </Component>
+            <Component Id="cmp28DA583D03D243568B9E8D67E28DC03E" Guid="2EADC67D-02DA-4234-A457-6E565E628553">
+                <File Id="fil7F8EC318E9E8F0F09CC7C081378B6293" KeyPath="yes" Source="$(var.PublishDir)\System.Diagnostics.EventLog.dll" />
+            </Component>
+            <Component Id="cmpAA71AC0ED023C2C24B4F61CC98B27F64" Guid="524F5309-EC89-46AA-B430-03CF2EBD9241">
+                <File Id="fil49D56705AF9A04B1D7C05BA68795D333" KeyPath="yes" Source="$(var.PublishDir)\System.IO.Ports.dll" />
+            </Component>
+            <Component Id="cmp6FD941A56CFB6288079AD725FC4C6CC9" Guid="688CDA8B-79E7-4400-99A6-160A52FB198E">
+                <File Id="filF62ABB9A1DBA3DB8EA89A66F6CDF9023" KeyPath="yes" Source="$(var.PublishDir)\System.Net.Http.Formatting.dll" />
+            </Component>
+            <Component Id="cmp3C5190B580EDFB87D0BC5E835BB950DE" Guid="59DE9D88-0298-46D1-A0AB-F57A83D2811C">
+                <File Id="fil0B6369FF78F990F18A525D5F0CC6D1AB" KeyPath="yes" Source="$(var.PublishDir)\System.ServiceProcess.ServiceController.dll" />
+            </Component>
+            <Component Id="cmp7F70B6DF53F7714EBEDFF0E0D7F0A488" Guid="4DEF1D17-72A2-44B5-A74C-4DA25DAB92C4">
+                <File Id="filA13D0C32B58DB75057207ED89E7E4152" KeyPath="yes" Source="$(var.PublishDir)\TUDCoreService2.0.deps.json" />
+            </Component>
+            <Component Id="cmp68089417607EB3F302C75E88ED867ED6" Guid="8C90EC15-6941-42EE-AA4B-F2EF01009178">
+                <File Id="fil3BD4CC031E1DCFA53CEAE86001A7313B" KeyPath="yes" Source="$(var.PublishDir)\TUDCoreService2.0.dll" />
+            </Component>
+            <Component Id="cmpBBC2391F3C771CED41F329AEA0BAD31C" Guid="95A2E11F-324E-4058-816C-5AE554BBA625">
+                <File Id="filD51A95CC0168BE24804F9C009B3A825B" KeyPath="yes" Source="$(var.PublishDir)\TUDCoreService2.0.exe" />
+            </Component>
+            <Component Id="cmp836C2C6C32709DB5DC2DA4CEAA2B4F9C" Guid="4FC36D46-8D01-4556-B861-ECE4494BCB47">
+                <File Id="fil1FC5988E8EE708E0815B25B12F8C6C13" KeyPath="yes" Source="$(var.PublishDir)\TUDCoreService2.0.pdb" />
+            </Component>
+            <Component Id="cmp25473174F230251818E86F4817C2416C" Guid="7D7F0060-00F4-496E-AE70-C0C5F048DBA2">
+                <File Id="filFD2D4FCF54168B112B711D4EFC456762" KeyPath="yes" Source="$(var.PublishDir)\TUDCoreService2.0.runtimeconfig.json" />
+            </Component>
+            <Directory Id="dir58E8247E2885C01898CAD009F9EFD8BA" Name="runtimes">
+                <Directory Id="dir6F75383DB633D8F130457F52F58EA410" Name="linux-arm">
+                    <Directory Id="dirDE2B6474A7AE43169B31CD69645DD47A" Name="native">
+                        <Component Id="cmp280CA51366DBDBE494390D741E510539" Guid="28006708-0FB3-48B5-807B-FA3C816067AF">
+                            <File Id="filCFA65FEC1E61E5C1410FB189E4DDC6D9" KeyPath="yes" Source="$(var.PublishDir)\runtimes\linux-arm\native\libSystem.IO.Ports.Native.so" />
+                        </Component>
+                    </Directory>
+                </Directory>
+                <Directory Id="dir4368456DE80A31A0FABEF422CF868A74" Name="linux-arm64">
+                    <Directory Id="dirD4D406B0649E8BA45C0D436FC1C3D7B7" Name="native">
+                        <Component Id="cmpA5DCC1EC6CC35B2066C91F037055DBD7" Guid="A04E687E-D7DC-4299-9113-9977B63F2982">
+                            <File Id="fil88D61011EB77E6D2BDACF5100A785CC6" KeyPath="yes" Source="$(var.PublishDir)\runtimes\linux-arm64\native\libSystem.IO.Ports.Native.so" />
+                        </Component>
+                    </Directory>
+                </Directory>
+                <Directory Id="dir986BEF73997BE02DCDBC34E856C19B36" Name="linux-x64">
+                    <Directory Id="dirE1E651EB5B4F1522E5E10B81FEA70677" Name="native">
+                        <Component Id="cmpF5FD3E25EB57522BE42D92E3C953CD4F" Guid="13610429-B1C3-4751-AFA1-A9A810A82E51">
+                            <File Id="fil4BBD21896089B94874D22332306120EF" KeyPath="yes" Source="$(var.PublishDir)\runtimes\linux-x64\native\libSystem.IO.Ports.Native.so" />
+                        </Component>
+                    </Directory>
+                </Directory>
+                <Directory Id="dir2F16A789372805F097C242E23779E164" Name="osx-arm64">
+                    <Directory Id="dir2A5033986A8D1FF1B6E317B1A9949571" Name="native">
+                        <Component Id="cmp7FE6A73F916C32B74F2AAC82875FFB30" Guid="79C757D3-0785-4F2F-A87A-5838E98FFE26">
+                            <File Id="fil6222348F4CA252DF1BDC6C997D3E5E4E" KeyPath="yes" Source="$(var.PublishDir)\runtimes\osx-arm64\native\libSystem.IO.Ports.Native.dylib" />
+                        </Component>
+                    </Directory>
+                </Directory>
+                <Directory Id="dir42B901FB10752B2744AE05D46EAF35EC" Name="osx-x64">
+                    <Directory Id="dir71D0D403061D4DE071C64AEB774E16CF" Name="native">
+                        <Component Id="cmpD36B1EEEC5491AF65B4412E9F5CE3425" Guid="9A8ECE96-FCA0-42AE-AF4A-E6989704A7D1">
+                            <File Id="filDB5D30749D6E61F70BBF67F36DCB0BC1" KeyPath="yes" Source="$(var.PublishDir)\runtimes\osx-x64\native\libSystem.IO.Ports.Native.dylib" />
+                        </Component>
+                    </Directory>
+                </Directory>
+                <Directory Id="dirDD6F90495A1A6169171F36CE85E975B6" Name="unix">
+                    <Directory Id="dirF5C312D00ABBDC163194A7BEF01BFACF" Name="lib">
+                        <Directory Id="dir0DCDFDA8D285DD04A47FCE144C48D1F5" Name="net8.0">
+                            <Component Id="cmp791088B42A6142E494DF4FF4D2D0E194" Guid="222FA790-0A63-4F2A-BC4E-593E8F2E5572">
+                                <File Id="fil0166C94E9769E486723FC6667374CFB3" KeyPath="yes" Source="$(var.PublishDir)\runtimes\unix\lib\net8.0\System.IO.Ports.dll" />
+                            </Component>
+                        </Directory>
+                    </Directory>
+                </Directory>
+                <Directory Id="dir9BE9104649A116CC7BCCF4D9CCD3331B" Name="win">
+                    <Directory Id="dirD19B0610952D1EE2D417EB5361695989" Name="lib">
+                        <Directory Id="dir83F1876DE08D123126E8658B6C89D603" Name="net8.0">
+                            <Component Id="cmp034548520D5A019A4E7BD5A903DD0FA2" Guid="1C39E5E6-7126-4BB2-9684-F233BA5EC229">
+                                <File Id="filF2935F7A7ABB76FDC059A3F595230103" KeyPath="yes" Source="$(var.PublishDir)\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll" />
+                            </Component>
+                            <Component Id="cmp70AEA587DEAD72A81997EF841D9A5B5C" Guid="4027A608-8D66-4E6C-B9C6-76CEB4609BEB">
+                                <File Id="filF5C82EA3A092DD16D4A2194EE2679E61" KeyPath="yes" Source="$(var.PublishDir)\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.Messages.dll" />
+                            </Component>
+                            <Component Id="cmpA086E435B877D72463DBA72F9AB68A37" Guid="D5F9A955-5AF2-48B3-B179-AE487F539C27">
+                                <File Id="fil8F5D8571AE0C7A77794109393A11FB3F" KeyPath="yes" Source="$(var.PublishDir)\runtimes\win\lib\net8.0\System.IO.Ports.dll" />
+                            </Component>
+                            <Component Id="cmp932BB15D247B8FEAA0D636EBE70C9160" Guid="F19601FD-E129-4EFE-84F1-40491F3C3AF1">
+                                <File Id="filE9AD620A904FA68BE02261BC7B7882F4" KeyPath="yes" Source="$(var.PublishDir)\runtimes\win\lib\net8.0\System.ServiceProcess.ServiceController.dll" />
+                            </Component>
+                        </Directory>
+                    </Directory>
+                </Directory>
+            </Directory>
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="ProductComponents">
+            <ComponentRef Id="cmpA0863526952F7834E7C922F065E4C8A8" />
+            <ComponentRef Id="cmpF82FCA80BBAF44D285C97F10993DEEE6" />
+            <ComponentRef Id="cmpDC19BA21EFF423B27F8787A2AB8F2B3C" />
+            <ComponentRef Id="cmp85A16DDDD438C8839C302EEFF54E8E0C" />
+            <ComponentRef Id="cmp4A61E3F01E16F7C35D22D304DE7C3D7D" />
+            <ComponentRef Id="cmpC2B3CC4C105FBF588A9EBBD45742C349" />
+            <ComponentRef Id="cmp695DF09F0E9EE30558F8C6D16553F843" />
+            <ComponentRef Id="cmp0F72FDFC2B5DABBEED0952957424C516" />
+            <ComponentRef Id="cmp191446DEBB621CC91C2B2E713F085F01" />
+            <ComponentRef Id="cmp306F083BB44F8AEA42DD7E2AB9CD82C2" />
+            <ComponentRef Id="cmp198468A4AE980CD6955CB6EB86083726" />
+            <ComponentRef Id="cmp493E9BC44885B6BC5C57BDB1302C40D9" />
+            <ComponentRef Id="cmpD71177CD3BCD768F1F74211E6E2E353D" />
+            <ComponentRef Id="cmpBB58932E81784E90600A3B2DEB2E2D6A" />
+            <ComponentRef Id="cmp0209E8308C907CAD5474151F7C6836F5" />
+            <ComponentRef Id="cmp6361EE614B62630DD923390326EAF03C" />
+            <ComponentRef Id="cmp1E5A63B6F657DD090469973A1C3D2C59" />
+            <ComponentRef Id="cmpB96239F931804879A085E057C6E72657" />
+            <ComponentRef Id="cmp1ED5B5DCD1725E69F71E98865BCEAAB9" />
+            <ComponentRef Id="cmpFD16E629F3B1C17887ACD3B97583CB13" />
+            <ComponentRef Id="cmpC656E9D9806FE126507981A789C77410" />
+            <ComponentRef Id="cmpCCCABDFD373BD04A84055351AE3256B2" />
+            <ComponentRef Id="cmp8C674FD6A69988A60A77A4CEE0F53781" />
+            <ComponentRef Id="cmp9B211F39744547E733F9040027FF1A3B" />
+            <ComponentRef Id="cmp60BA3AB6448C5A0208FEDA4F886EDDE8" />
+            <ComponentRef Id="cmp591239506CAB75D331DE5D90D6713057" />
+            <ComponentRef Id="cmp835034F744990576E31C2DBC7C9293BF" />
+            <ComponentRef Id="cmp3D087D80699D13BCB013A8533A2C0DCF" />
+            <ComponentRef Id="cmp63493859708989EE0F11F5DF7347E61A" />
+            <ComponentRef Id="cmpF5D2F2D913749765205DC918BD981CD0" />
+            <ComponentRef Id="cmp3279C150AE8DF554FD7EEE2085672A2B" />
+            <ComponentRef Id="cmp946145B53A7DCDFA822B0EFD2314FAB6" />
+            <ComponentRef Id="cmpE679161C4F75F1B7C7AE4047591EBF60" />
+            <ComponentRef Id="cmpBC4FC00A26E7D32479D42D3411317FC5" />
+            <ComponentRef Id="cmp42CE9AE95732AA34478329FB9DE90B9C" />
+            <ComponentRef Id="cmpB7F1EBE42DCB1051B92D42C1EF84E2F9" />
+            <ComponentRef Id="cmp4387649DAD23EB7D89C77DC64718A932" />
+            <ComponentRef Id="cmp0F39F7990DAEB7557215BDF3623566E8" />
+            <ComponentRef Id="cmp57D17D6F6AC98A3AD60AE14211A59A0F" />
+            <ComponentRef Id="cmp08C6BF4A980CDB0662CA93DA389333A1" />
+            <ComponentRef Id="cmp28DA583D03D243568B9E8D67E28DC03E" />
+            <ComponentRef Id="cmpAA71AC0ED023C2C24B4F61CC98B27F64" />
+            <ComponentRef Id="cmp6FD941A56CFB6288079AD725FC4C6CC9" />
+            <ComponentRef Id="cmp3C5190B580EDFB87D0BC5E835BB950DE" />
+            <ComponentRef Id="cmp7F70B6DF53F7714EBEDFF0E0D7F0A488" />
+            <ComponentRef Id="cmp68089417607EB3F302C75E88ED867ED6" />
+            <ComponentRef Id="cmpBBC2391F3C771CED41F329AEA0BAD31C" />
+            <ComponentRef Id="cmp836C2C6C32709DB5DC2DA4CEAA2B4F9C" />
+            <ComponentRef Id="cmp25473174F230251818E86F4817C2416C" />
+            <ComponentRef Id="cmp280CA51366DBDBE494390D741E510539" />
+            <ComponentRef Id="cmpA5DCC1EC6CC35B2066C91F037055DBD7" />
+            <ComponentRef Id="cmpF5FD3E25EB57522BE42D92E3C953CD4F" />
+            <ComponentRef Id="cmp7FE6A73F916C32B74F2AAC82875FFB30" />
+            <ComponentRef Id="cmpD36B1EEEC5491AF65B4412E9F5CE3425" />
+            <ComponentRef Id="cmp791088B42A6142E494DF4FF4D2D0E194" />
+            <ComponentRef Id="cmp034548520D5A019A4E7BD5A903DD0FA2" />
+            <ComponentRef Id="cmp70AEA587DEAD72A81997EF841D9A5B5C" />
+            <ComponentRef Id="cmpA086E435B877D72463DBA72F9AB68A37" />
+            <ComponentRef Id="cmp932BB15D247B8FEAA0D636EBE70C9160" />
+        </ComponentGroup>
+    </Fragment>
+</Wix>
