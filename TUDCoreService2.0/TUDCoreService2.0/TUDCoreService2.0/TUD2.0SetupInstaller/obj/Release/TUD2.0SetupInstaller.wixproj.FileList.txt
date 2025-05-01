@@ -1,0 +1,8 @@
+C:\Arafath\Arafath - 5202024\Arafath\Arafath\Projects\Tranact\TUD2.0Core\TUDCoreService2.0\TUDCoreService2.0\TUDCoreService2.0\TUD2.0SetupInstaller\bin\Release\cab1.cab
+C:\Arafath\Arafath - 5202024\Arafath\Arafath\Projects\Tranact\TUD2.0Core\TUDCoreService2.0\TUDCoreService2.0\TUDCoreService2.0\TUD2.0SetupInstaller\bin\Release\TUD2.0SetupInstaller.msi
+C:\Arafath\Arafath - 5202024\Arafath\Arafath\Projects\Tranact\TUD2.0Core\TUDCoreService2.0\TUDCoreService2.0\TUDCoreService2.0\TUD2.0SetupInstaller\bin\Release\TUD2.0SetupInstaller.wixpdb
+obj\Release\Product.wixobj
+obj\Release\RunTimeFiles.wixobj
+obj\Release\TUD2.0SetupInstaller.wixproj.BindContentsFileListnull.txt
+obj\Release\TUD2.0SetupInstaller.wixproj.BindOutputsFileListnull.txt
+obj\Release\TUD2.0SetupInstaller.wixproj.BindBuiltOutputsFileListnull.txt

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?define PublishDir = "..\TUDCoreService2.0\bin\Release\net8.0\publish" ?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+
+	<Product
+		Id="*"
+		Name="TUD2.0SetupInstaller"
+		Language="1033"
+		Version="1.0.0"
+		Manufacturer="Tranact Payment Systems,Inc"
+		UpgradeCode="3f561137-03dd-40c6-9ca7-d44f1adc2535">
+
+		<Package
+			InstallerVersion="500"
+			Compressed="yes"
+			InstallScope="perMachine"
+			InstallPrivileges="elevated"
+			/>
+
+		<MajorUpgrade
+			  Schedule="afterInstallInitialize"
+			  DowngradeErrorMessage="A newer version is already installed."
+			  AllowSameVersionUpgrades="yes"
+			  AllowDowngrades="no"
+			/>
+		<MediaTemplate />
+
+		<Feature Id="ProductFeature" Title="TUD2.0Setup" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+		</Feature>
+
+		<Feature Id="MainFeature" Title="MyApp" Level="1">
+			<ComponentGroupRef Id="AppFilesGroup" />
+		</Feature>
+
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLFOLDER" Name="TUD2.0Setup">
+					<Directory Id="RuntimesDir" Name="runtimes">
+						<Directory Id="WinDir" Name="win">
+							<Directory Id="LibDir" Name="lib">
+								<Directory Id="Net80Dir" Name="net8.0" />
+							</Directory>
+						</Directory>
+					</Directory>
+				</Directory>
+			</Directory>
+		</Directory>
+	</Fragment>
+
+	<!-- Custom Action definition -->
+	<Fragment>
+		<CustomAction Id="ForceDeleteService"
+				  FileKey="CmdExe"
+				  ExeCommand="/c sc delete YourServiceName"
+				  Execute="deferred"
+				  Return="ignore"
+				  Impersonate="no" />
+
+		<!-- Schedule the Custom Action during uninstall -->
+		<InstallExecuteSequence>
+			<Custom Action="ForceDeleteService" After="RemoveServices">REMOVE="ALL"</Custom>
+		</InstallExecuteSequence>
+		
+	</Fragment>
+	
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+
+			<Component Id="ProductComponent" Guid="FC65C68B-8DC1-484D-BBF6-771A6F316077">
+
+				<File Id="AppSettings" Source="$(var.PublishDir)\appsettings.json" />
+
+				<File Id="Polly" Source="$(var.PublishDir)\Polly.dll" />
+				<File Id="PollyExtension" Source="$(var.PublishDir)\Polly.Extensions.Http.dll" />
+
+				<File Id="MicrosoftAbstractions" Source="$(var.PublishDir)\Microsoft.Extensions.Configuration.Abstractions.dll" />
+				<File Id="MicrosoftBinder" Source="$(var.PublishDir)\Microsoft.Extensions.Configuration.Binder.dll" />
+				<File Id="MicrosoftCommandLine" Source="$(var.PublishDir)\Microsoft.Extensions.Configuration.CommandLine.dll" />
+				<File Id="MicrosoftConfiguration" Source="$(var.PublishDir)\Microsoft.Extensions.Configuration.dll" />
+				<File Id="MicrosoftConfigurationEnvironmentVariables" Source="$(var.PublishDir)\Microsoft.Extensions.Configuration.EnvironmentVariables.dll" />
+				<File Id="MicrosoftConfigurationFileExtensions" Source="$(var.PublishDir)\Microsoft.Extensions.Configuration.FileExtensions.dll" />
+				<File Id="MicrosoftConfigurationJson" Source="$(var.PublishDir)\Microsoft.Extensions.Configuration.Json.dll" />
+				<File Id="MicrosoftConfigurationUserSecrets" Source="$(var.PublishDir)\Microsoft.Extensions.Configuration.UserSecrets.dll" />
+				<File Id="MicrosoftDependencyInjectionAbstractions" Source="$(var.PublishDir)\Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+				<File Id="MicrosoftDependencyInjection" Source="$(var.PublishDir)\Microsoft.Extensions.DependencyInjection.dll" />
+
+				<File Id="MicrosoftExtensionAbstractions" Source="$(var.PublishDir)\Microsoft.Extensions.Diagnostics.Abstractions.dll" />
+				<File Id="MicrosoftExtensionDiagnostics" Source="$(var.PublishDir)\Microsoft.Extensions.Diagnostics.dll" />
+				<File Id="MicrosoftExtensionFileProvidersAbstractions" Source="$(var.PublishDir)\Microsoft.Extensions.FileProviders.Abstractions.dll" />
+				<File Id="MicrosoftExtensionPhysical" Source="$(var.PublishDir)\Microsoft.Extensions.FileProviders.Physical.dll" />
+				<File Id="MicrosoftExtensionFileSystemGlobbing" Source="$(var.PublishDir)\Microsoft.Extensions.FileSystemGlobbing.dll" />
+				<File Id="MicrosoftExtensionHostingAbstractions" Source="$(var.PublishDir)\Microsoft.Extensions.Hosting.Abstractions.dll" />
+				<File Id="MicrosoftHosting" Source="$(var.PublishDir)\Microsoft.Extensions.Hosting.dll" />
+				<File Id="MicrosoftHostingWindowsServices" Source="$(var.PublishDir)\Microsoft.Extensions.Hosting.WindowsServices.dll" />
+				<File Id="MicrosoftHttp" Source="$(var.PublishDir)\Microsoft.Extensions.Http.dll" />
+				<File Id="MicrosoftPolly" Source="$(var.PublishDir)\Microsoft.Extensions.Http.Polly.dll" />
+				<File Id="MicrosoftLoggingAbstractions" Source="$(var.PublishDir)\Microsoft.Extensions.Logging.Abstractions.dll" />
+				<File Id="MicrosoftLoggingConfiguration" Source="$(var.PublishDir)\Microsoft.Extensions.Logging.Configuration.dll" />
+				<File Id="MicrosoftConsole" Source="$(var.PublishDir)\Microsoft.Extensions.Logging.Console.dll" />
+				<File Id="MicrosoftDebug" Source="$(var.PublishDir)\Microsoft.Extensions.Logging.Debug.dll" />
+				<File Id="MicrosoftLogging" Source="$(var.PublishDir)\Microsoft.Extensions.Logging.dll" />
+				<File Id="MicrosoftEventLog" Source="$(var.PublishDir)\Microsoft.Extensions.Logging.EventLog.dll" />
+				<File Id="MicrosoftEventSource" Source="$(var.PublishDir)\Microsoft.Extensions.Logging.EventSource.dll" />
+				<File Id="MicrosoftConfigurationExtensions" Source="$(var.PublishDir)\Microsoft.Extensions.Options.ConfigurationExtensions.dll" />
+				<File Id="MicrosoftOptions" Source="$(var.PublishDir)\Microsoft.Extensions.Options.dll" />
+				<File Id="MicrosoftPrimitives" Source="$(var.PublishDir)\Microsoft.Extensions.Primitives.dll" />
+
+				<File Id="NLogConfig" Source="$(var.PublishDir)\NLog.config" />
+				<File Id="NLog" Source="$(var.PublishDir)\NLog.dll" />
+				<File Id="NLogLogging" Source="$(var.PublishDir)\NLog.Extensions.Logging.dll" />
+				<File Id="NLogLoki" Source="$(var.PublishDir)\NLog.Loki.dll" />
+
+				<File Id="NewtonsoftBson" Source="$(var.PublishDir)\Newtonsoft.Json.Bson.dll" />
+				<File Id="Newtonsoft" Source="$(var.PublishDir)\Newtonsoft.Json.dll" />
+
+				<File Id="SystemHttpFormatting" Source="$(var.PublishDir)\System.Net.Http.Formatting.dll" />
+				<File Id="SystemServiceController" Source="$(var.PublishDir)\System.ServiceProcess.ServiceController.dll" />
+				<File Id="SystemIOPorts" Source="$(var.PublishDir)\System.IO.Ports.dll" />
+				<File Id="SystemEventLog" Source="$(var.PublishDir)\System.Diagnostics.EventLog.dll" />
+
+				<File Id="TUDExe" Source="$(var.PublishDir)\TUDCoreService2.0.exe" KeyPath="yes" />
+				<File Id="TUDCoreService2dll" Source="$(var.PublishDir)\TUDCoreService2.0.dll" />
+				<File Id="TUDRuntimeConfig" Source="$(var.PublishDir)\TUDCoreService2.0.runtimeconfig.json" />
+				<File Id="TUDRuntimedeps" Source="$(var.PublishDir)\TUDCoreService2.0.deps.json" />
+
+				<ServiceInstall
+				  Id="MyWorkerServiceInstall"
+				  Name="TUD2.0CoreService"
+				  DisplayName="TUD 2.0 Service"
+				  Description="TUD 2.0 Service to read scale value"
+				  Type="ownProcess"
+				  Start="demand"
+				  ErrorControl="normal"
+				  Account="LocalSystem"
+				  Vital="yes"/>
+
+				<ServiceControl
+				  Id="MyWorkerServiceControl"
+				  Name="TUD2.0CoreService"
+				  Stop="both"
+				  Remove="uninstall"
+				  Wait="yes"/>
+			</Component>
+
+		</ComponentGroup>
+	</Fragment>
+
+</Wix>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?define PublishDir = "..\TUDCoreService2.0\bin\Release\net8.0\publish" ?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Fragment>
+		<!-- Place runtime files into INSTALLFOLDER\runtimes -->
+		<DirectoryRef Id="Net80Dir">
+			<Component Id="cmpAppSettings" Guid="5AB84B8D-CB67-490D-AF53-2E452089DA65">
+				<File Id="DiagnosticEventLog" Name="System.ServiceProcess.ServiceController.dll" Source="C:\Arafath\Arafath - 5202024\Arafath\Arafath\Projects\Tranact\TUD2.0Core\TUDCoreService2.0\TUDCoreService2.0\TUDCoreService2.0\TUDCoreService2.0\bin\Release\net8.0\publish\runtimes\win\lib\net8.0\System.ServiceProcess.ServiceController.dll" />
+			</Component>
+
+			<Component Id="cmpSecrets" Guid="BBF8F03B-BD3B-41EC-A41A-BC574AB894EE">
+				<File Id="EventLog" Name="System.Diagnostics.EventLog.dll" Source="C:\Arafath\Arafath - 5202024\Arafath\Arafath\Projects\Tranact\TUD2.0Core\TUDCoreService2.0\TUDCoreService2.0\TUDCoreService2.0\TUDCoreService2.0\bin\Release\net8.0\publish\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll" />
+			</Component>
+
+			<Component Id="cmpSecrets1" Guid="BBF8F03B-BD3B-41EC-A41A-BC574AB894EA">
+				<File Id="EventLog1" Name="System.Diagnostics.EventLog.Messages.dll" Source="C:\Arafath\Arafath - 5202024\Arafath\Arafath\Projects\Tranact\TUD2.0Core\TUDCoreService2.0\TUDCoreService2.0\TUDCoreService2.0\TUDCoreService2.0\bin\Release\net8.0\publish\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.Messages.dll" />
+			</Component>
+
+			<Component Id="cmpSecrets2" Guid="BBF8F03B-BD3B-41EC-A41A-BC574AB894ED">
+				<File Id="EventLog2" Name="System.IO.Ports.dll" Source="C:\Arafath\Arafath - 5202024\Arafath\Arafath\Projects\Tranact\TUD2.0Core\TUDCoreService2.0\TUDCoreService2.0\TUDCoreService2.0\TUDCoreService2.0\bin\Release\net8.0\publish\runtimes\win\lib\net8.0\System.IO.Ports.dll" />
+			</Component>
+		</DirectoryRef>
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="AppFilesGroup">
+			<ComponentRef Id="cmpAppSettings" />
+			<ComponentRef Id="cmpSecrets" />
+			<ComponentRef Id="cmpSecrets1" />
+			<ComponentRef Id="cmpSecrets2" />
+		</ComponentGroup>
+	</Fragment>
+</Wix>
