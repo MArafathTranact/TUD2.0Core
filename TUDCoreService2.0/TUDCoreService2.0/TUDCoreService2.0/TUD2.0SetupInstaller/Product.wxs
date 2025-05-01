@@ -24,7 +24,6 @@
 			  AllowSameVersionUpgrades="yes"
 			  AllowDowngrades="no"
 			/>
-		<MediaTemplate />
 
 		<Feature Id="ProductFeature" Title="TUD2.0Setup" Level="1">
 			<ComponentGroupRef Id="ProductComponents" />
@@ -35,6 +34,12 @@
 		</Feature>
 
 	</Product>
+
+	<!-- Add this Media element -->
+	<Fragment>
+		<Media Id="1" Cabinet="cab1.cab" EmbedCab="yes" />
+	</Fragment>
+
 
 	<Fragment>
 		<Directory Id="TARGETDIR" Name="SourceDir">
@@ -65,9 +70,9 @@
 		<InstallExecuteSequence>
 			<Custom Action="ForceDeleteService" After="RemoveServices">REMOVE="ALL"</Custom>
 		</InstallExecuteSequence>
-		
+
 	</Fragment>
-	
+
 	<Fragment>
 		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
 
