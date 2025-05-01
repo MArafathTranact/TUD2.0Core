@@ -5,10 +5,14 @@ VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TUDCoreService2.0", "TUDCoreService2.0\TUDCoreService2.0.csproj", "{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}"
 EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "TUD2.0SetupInstaller", "TUD2.0SetupInstaller\TUD2.0SetupInstaller.wixproj", "{F351E5BA-D764-4B9A-B4F1-9455AC8440BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|x86 = Debug|x86
+		DefaultBuild|Any CPU = DefaultBuild|Any CPU
+		DefaultBuild|x86 = DefaultBuild|x86
 		Release|Any CPU = Release|Any CPU
 		Release|x86 = Release|x86
 	EndGlobalSection
@@ -17,10 +21,26 @@ Global
 		{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}.Debug|x86.Build.0 = Debug|Any CPU
+		{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}.DefaultBuild|Any CPU.ActiveCfg = Debug|Any CPU
+		{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}.DefaultBuild|Any CPU.Build.0 = Debug|Any CPU
+		{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}.DefaultBuild|x86.ActiveCfg = Debug|Any CPU
+		{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}.DefaultBuild|x86.Build.0 = Debug|Any CPU
 		{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}.Release|x86.ActiveCfg = Release|Any CPU
 		{3163DA19-FC57-4F50-B488-DA0DA9FE9FBB}.Release|x86.Build.0 = Release|Any CPU
+		{F351E5BA-D764-4B9A-B4F1-9455AC8440BE}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{F351E5BA-D764-4B9A-B4F1-9455AC8440BE}.Debug|Any CPU.Build.0 = Debug|x86
+		{F351E5BA-D764-4B9A-B4F1-9455AC8440BE}.Debug|x86.ActiveCfg = Debug|x86
+		{F351E5BA-D764-4B9A-B4F1-9455AC8440BE}.Debug|x86.Build.0 = Debug|x86
+		{F351E5BA-D764-4B9A-B4F1-9455AC8440BE}.DefaultBuild|Any CPU.ActiveCfg = Release|x86
+		{F351E5BA-D764-4B9A-B4F1-9455AC8440BE}.DefaultBuild|Any CPU.Build.0 = Release|x86
+		{F351E5BA-D764-4B9A-B4F1-9455AC8440BE}.DefaultBuild|x86.ActiveCfg = Release|x86
+		{F351E5BA-D764-4B9A-B4F1-9455AC8440BE}.DefaultBuild|x86.Build.0 = Release|x86
+		{F351E5BA-D764-4B9A-B4F1-9455AC8440BE}.Release|Any CPU.ActiveCfg = Release|x86
+		{F351E5BA-D764-4B9A-B4F1-9455AC8440BE}.Release|Any CPU.Build.0 = Release|x86
+		{F351E5BA-D764-4B9A-B4F1-9455AC8440BE}.Release|x86.ActiveCfg = Release|x86
+		{F351E5BA-D764-4B9A-B4F1-9455AC8440BE}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
