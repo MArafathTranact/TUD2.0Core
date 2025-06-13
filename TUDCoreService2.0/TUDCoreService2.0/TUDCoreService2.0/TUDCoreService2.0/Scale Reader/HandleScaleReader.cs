@@ -128,14 +128,19 @@ namespace TUDCoreService2._0.Scale_Reader
                         var formattedWeightRead = ScaleWeight.ToString("0.####", CultureInfo.InvariantCulture);
                         CurrentWeight = formattedWeightRead;
                     }
+                    await UpdateWorkStation(triggerUpdateCamera);
 
                     if (!string.IsNullOrEmpty(command.cameraName) && !string.IsNullOrEmpty(command.yardId) && triggerUpdateCamera && command.isFireCameraEnabled)
                     {
                         await TriggerCamera(command);
                     }
                 }
+                else
+                {
+                    await UpdateWorkStation(triggerUpdateCamera);
 
-                await UpdateWorkStation(triggerUpdateCamera);
+                }
+
             }
             catch (Exception ex)
             {
