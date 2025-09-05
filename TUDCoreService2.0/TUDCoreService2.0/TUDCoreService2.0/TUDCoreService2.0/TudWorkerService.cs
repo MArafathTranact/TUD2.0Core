@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TUDCoreService2._0.SignalR;
 using TUDCoreService2._0.Utilities.Interface;
 using TUDCoreService2._0.WebSocket;
 
@@ -13,11 +14,13 @@ namespace TUDCoreService2._0
     {
         private readonly INLogger _logger;
         private readonly IWebSocketListener _webSocketListener;
+        private readonly ISignalRListener _signalRListener;
         private bool _runOnce = true;
-        public TudWorkerService(INLogger logger, IWebSocketListener webSocketListener)
+        public TudWorkerService(INLogger logger, IWebSocketListener webSocketListener, ISignalRListener signalRListener)
         {
             _logger = logger;
             _webSocketListener = webSocketListener;
+            _signalRListener = signalRListener;
         }
 
         public override Task StartAsync(CancellationToken cancellationToken)
@@ -41,7 +44,8 @@ namespace TUDCoreService2._0
                     if (_runOnce)
                     {
                         _runOnce = false;
-                        await _webSocketListener.ConnectWebSocket();
+                        //await _webSocketListener.ConnectWebSocket();
+                        await _signalRListener.ConnectSignalR();
                     }
                 }
 
@@ -50,7 +54,6 @@ namespace TUDCoreService2._0
             catch (Exception)
             {
 
-                throw;
             }
             finally
             {
@@ -61,8 +64,22 @@ namespace TUDCoreService2._0
         }
         public override async Task StopAsync(CancellationToken cancellationToken)
         {
-            LogEvents($" Stoping Service..");
-            await _webSocketListener.CloseWebSocket();
+            try
+            {
+                LogEvents($" Stoping Service..");
+                //await _webSocketListener.CloseWebSocket();
+                await _signalRListener.CloseSignalR();
+            }
+            catch (Exception)
+            {
+
+            }
+            finally
+            {
+                LogEvents($" Service Stopped ");
+                NLog.LogManager.Shutdown();
+            }
+
             //await base.StopAsync(cancellationToken);
 
         }

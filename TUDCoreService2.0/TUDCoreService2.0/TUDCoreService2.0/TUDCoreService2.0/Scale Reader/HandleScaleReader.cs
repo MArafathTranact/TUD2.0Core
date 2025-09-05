@@ -74,7 +74,7 @@ namespace TUDCoreService2._0.Scale_Reader
                 {
                     if ((!decimal.TryParse(weightRead, out ScaleWeight) && weightRead != string.Empty) || ScaleWeight < 0)
                     {
-                        LogEvents($"Error  Scale Value : {weightRead}");
+                        LogEvents($"Error  Scale Value : {weightRead}", command.id);
                     }
                     else
                     {
@@ -102,7 +102,7 @@ namespace TUDCoreService2._0.Scale_Reader
                 LogExceptionEvents("Exception at HandleScaleReader.GetTcpScaleWeight", ex);
             }
 
-            LogEvents($"Updating Scale Value : {returnWeight}");
+            LogEvents($"Updating Scale Value : {returnWeight}", command.id);
             //_errorMessage = string.Empty;
             return returnWeight;
         }
@@ -121,35 +121,82 @@ namespace TUDCoreService2._0.Scale_Reader
                 {
                     if ((!decimal.TryParse(weightRead, out ScaleWeight) && weightRead != string.Empty) || ScaleWeight < 0)
                     {
-                        LogEvents($"Error  Scale Value : {weightRead}");
+                        LogEvents($"Error  Scale Value : {weightRead}", command.id);
                     }
                     else
                     {
                         var formattedWeightRead = ScaleWeight.ToString("0.####", CultureInfo.InvariantCulture);
                         CurrentWeight = formattedWeightRead;
                     }
-                    await UpdateWorkStation(triggerUpdateCamera);
+                    //await UpdateWorkStation(triggerUpdateCamera);
 
-                    if (!string.IsNullOrEmpty(command.cameraName) && !string.IsNullOrEmpty(command.yardId) && triggerUpdateCamera && command.isFireCameraEnabled)
-                    {
-                        await TriggerCamera(command);
-                    }
+                    //if (!string.IsNullOrEmpty(command.cameraName) && !string.IsNullOrEmpty(command.yardId) && triggerUpdateCamera && command.isFireCameraEnabled)
+                    //{
+                    //    await TriggerCamera(command);
+                    //}
                 }
                 else
                 {
-                    await UpdateWorkStation(triggerUpdateCamera);
+                    await UpdateWorkStation(triggerUpdateCamera, command.id);
 
                 }
 
             }
             catch (Exception ex)
             {
-                await UpdateWorkStation(triggerUpdateCamera);
+                await UpdateWorkStation(triggerUpdateCamera, command.id);
 
                 LogExceptionEvents("Exception at HandleScaleReader.ProcessCommandHandle", ex);
             }
 
             await Task.CompletedTask;
+        }
+
+
+        public async Task<RemoteScaleResponse> ProcessSignalRCommandHandler(TudCommand command, bool fireCamerOnRestart, bool delayResponse)
+        {
+            var response = new RemoteScaleResponse() { ScaleId = Guid.Parse(command.id) };
+            try
+            {
+
+                var weightRead = await GetScaleWeight(command, delayResponse);
+
+                if (!string.IsNullOrEmpty(GetError()))
+                {
+                    if ((!decimal.TryParse(weightRead, out ScaleWeight) && weightRead != string.Empty) || ScaleWeight < 0)
+                    {
+                        LogEvents($"Error  Scale Value : {weightRead}", command.id);
+                    }
+                    else
+                    {
+                        //Can't guarantee the reading from the scale wasn't received with decimal so we will have to truncate it.
+                        var formattedWeightRead = ScaleWeight.ToString("0.####", CultureInfo.InvariantCulture);
+                        CurrentWeight = formattedWeightRead;
+                        if (string.IsNullOrEmpty(CurrentWeight))
+                            CurrentWeight = "0";
+                    }
+                    if (fireCamerOnRestart)
+                    {
+                        if (!string.IsNullOrEmpty(command.cameraName) && !string.IsNullOrEmpty(command.yardId) && !string.IsNullOrEmpty(command.ticket_nbr) && command.isFireCameraEnabled)
+                            Task.Run(() => TriggerCamera(command));
+                        else
+                            _logger.LogWarningWithNoLock($"No valid Camera Name({command.cameraName}) / Yard Id ({command.ticket_nbr}) / Ticket Number({command.ticket_nbr}) found for Scale '{command.id}' to trigger camera capture process");
+                    }
+
+
+                }
+                response.Error = _errorMessage;
+                response.Scale = CurrentWeight;
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.Error = ex.Message;
+
+                LogExceptionEvents("Exception at HandleScaleReader.ProcessSignalRCommandHandler", ex);
+
+                return response;
+            }
         }
 
         private async Task TriggerCamera(TudCommand command)
@@ -162,31 +209,29 @@ namespace TUDCoreService2._0.Scale_Reader
                     {
                         //   YardId = Guid.Parse(yardId), //Need to discuss on this
                         SpecifyJpeggerTable = "Images",
-                        CommodityName = command.ticket != null ? command.commodity : "",
+                        CommodityName = command.commodity,
                         CameraName = command.cameraName,
-                        TicketNumber = command.ticket != null ? command.ticket.ticket_nbr : "",
-                        EventCode = command.ticket != null ? command.ticket.event_code : "",
+                        TicketNumber = command.ticket_nbr,
+                        EventCode = command.event_code,
                         Weight = CurrentWeight,
                         YardId = string.IsNullOrEmpty(command.yardId) ? Guid.Empty : Guid.Parse(command.yardId)
                     },
                     // YardId = yardId, //Need to discuss on this
-                    BranchCode = command.ticket != null ? command.branch_code : "",
+
                     CameraName = command.cameraName,
-                    EventCode = command.ticket != null ? command.ticket.event_code : "",
-                    TicketNumber = command.ticket != null ? command.ticket_nbr : "",
-                    CommodityName = command.ticket != null ? command.commodity : "",
-                    TransactionType = command.ticket != null ? command.transaction_type : "",
+                    EventCode = command.event_code,
+                    TicketNumber = command.ticket_nbr,
+                    CommodityName = command.commodity,
                     Weight = CurrentWeight,
                     YardId = command.yardId
                 };
 
-                LogEvents($"Firing camera for scale '{_scaleId}''{request.CameraName}'");
-                await _handleCamera.TriggerCamera(request, _workStationName, _workStationId);
+                LogEvents($"Firing camera '{request.CameraName}'", command.id);
+                await _handleCamera.TriggerCamera(request, command.id.ToString());
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
             }
         }
 
@@ -282,12 +327,12 @@ namespace TUDCoreService2._0.Scale_Reader
 
                 if (command.useIpAddress && !string.IsNullOrEmpty(command.ipAddress) && command.ipPort.HasValue && command.ipPort != 0)
                 {
-                    LogEvents($"Using TCP Ip to Read scale value using '{command.ipAddress}' at port '{command.ipPort}'");
+                    LogEvents($"Using TCP Ip to Read scale value using '{command.ipAddress}' at port '{command.ipPort}'", command.id);
                     CurrentState = CurrentState.Tcp;
                 }
                 else
                 {
-                    LogEvents($"Using Com Port to Read scale value using 'COM{command.comPort}'");
+                    LogEvents($"Using Com Port to Read scale value using 'COM{command.comPort}'", command.id);
                     CurrentState = CurrentState.Com;
                 }
 
@@ -306,12 +351,12 @@ namespace TUDCoreService2._0.Scale_Reader
             {
                 if (command.useIpAddress && !string.IsNullOrEmpty(command.ipAddress) && command.ipPort.HasValue && command.ipPort != 0)
                 {
-                    LogEvents($"Using TCP Ip to Read scale value using '{command.ipAddress}' at port '{command.ipPort}'");
+                    LogEvents($"Using TCP Ip to Read scale value using '{command.ipAddress}' at port '{command.ipPort}'", command.id);
                     CurrentState = CurrentState.Tcp;
                 }
                 else
                 {
-                    LogEvents($"Using Com Port to Read scale value using 'COM{command.comPort}'");
+                    LogEvents($"Using Com Port to Read scale value using 'COM{command.comPort}'", command.id);
                     CurrentState = CurrentState.Com;
                 }
 
@@ -691,7 +736,7 @@ namespace TUDCoreService2._0.Scale_Reader
             }
             catch (System.IO.IOException ex)
             {
-                LogEvents($"Com port '{camera.comPort}' is being closed.");
+                LogEvents($"Com port '{camera.comPort}' is being closed.", camera.id);
             }
             catch (OperationCanceledException ex)
             {
@@ -940,10 +985,10 @@ namespace TUDCoreService2._0.Scale_Reader
         }
         private void LogExceptionEvents(string input, Exception exception)
         {
-            _logger.LogExceptionWithNoLock($" Work Station '{_workStationName}' : {input} :", exception);
+            _logger.LogExceptionWithNoLock($" {input} :", exception);
         }
 
-        private async Task UpdateWorkStation(bool updateAPI)
+        private async Task UpdateWorkStation(bool updateAPI, string scaleId)
         {
             if (string.IsNullOrEmpty(CurrentWeight))
                 CurrentWeight = "0";
@@ -960,18 +1005,19 @@ namespace TUDCoreService2._0.Scale_Reader
             //var json = JsonConvert.SerializeObject(updateScaleRead);
             var updateScaleRead = new ScaleUpdate() { error = _errorMessage, weight = CurrentWeight, updated_at = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now, TimeZoneInfo.Local).ToString("yyyy/MM/dd HH:mm:ss.fff:ff tt") };
 
-            LogEvents($"Updating Scale Value for scale Id {_scaleId}: {JsonConvert.SerializeObject(updateScaleRead)}");
-            LogEvents($"Update status {updateAPI}");
-            if (updateAPI)
-            {
-                await _aPI.PutRequest<ScaleUpdate>(updateScaleRead, $"scales/{_scaleId}");
-            }
+            LogEvents($"Updating Scale Value : {JsonConvert.SerializeObject(updateScaleRead)}", scaleId);
+            LogEvents($"Update status {updateAPI}", scaleId);
+            //if (updateAPI)
+            //{
+            //    await _aPI.PutRequest<ScaleUpdate>(updateScaleRead, $"scales/{_scaleId}");
+            //}
             //_errorMessage = string.Empty;
 
         }
-        private void LogEvents(string input)
+
+        private void LogEvents(string input, string scaleId = "")
         {
-            _logger.LogWithNoLock($" Work Station '{_workStationName}' : {input}");
+            _logger.LogWithNoLock($" Scale '{scaleId}' : {input}");
         }
 
 

@@ -67,5 +67,9 @@ namespace TUDCoreService2._0.Utilities
     {
         public string Error { get; set; }
         public string Scale { get; set; }
+
+        public Guid ScaleId { get; set; }
+        public string ScaleName { get; set; }
+
     }
 }

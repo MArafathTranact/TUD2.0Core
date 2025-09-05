@@ -18,8 +18,7 @@ namespace TUDCoreService2._0.Camera
 {
     public class HandleCamera : IHandleCamera
     {
-        string _workStationName = string.Empty;
-        long _workStationId;
+        string _workStationId;
         private readonly ITUDSettings _tudSettings;
         private readonly IConfiguration _configuration;
         private readonly ICamera _camera;
@@ -36,11 +35,10 @@ namespace TUDCoreService2._0.Camera
             _cameraGroup = cameraGroup;
             _tudSettings = _configuration.GetSection("TUDSettings").Get<TUDSettings>();
         }
-        public async Task TriggerCamera(JpeggerCameraCaptureRequest request, string workStationName, long workStationId)
+        public async Task TriggerCamera(JpeggerCameraCaptureRequest request, string workStationId)
         {
             try
             {
-                _workStationName = workStationName;
                 _workStationId = workStationId;
 
                 if (request == null) { return; }
@@ -431,7 +429,7 @@ namespace TUDCoreService2._0.Camera
                 }
                 else
                 {
-                    _logger.LogWarningWithNoLock($" Work Station '{_workStationName}' : Warning at PostMultiForm() Failure Response : '{response.ReasonPhrase}' : Ticket Number ='{request.TicketNumber}' , Camera Name ='{cameraName}' , Camera Group Name ='{request.CameraGroupName}' ");
+                    _logger.LogWarningWithNoLock($" Scale '{_workStationId}' : Warning at PostMultiForm() Failure Response : '{response.ReasonPhrase}' : Ticket Number ='{request.TicketNumber}' , Camera Name ='{cameraName}' , Camera Group Name ='{request.CameraGroupName}' ");
                 }
 
             }
@@ -440,14 +438,14 @@ namespace TUDCoreService2._0.Camera
                 LogExceptionEvents($"Exception at HandleCamera.PostMultiForm : Ticket Number ='{request.TicketNumber}' , Camera Name ='{cameraName}'", ex);
             }
         }
-        private void  LogEvents(string input)
+        private void LogEvents(string input)
         {
-            _logger.LogWithNoLock($" Work Station '{_workStationName}' : {input}");
+            _logger.LogWithNoLock($" Scale '{_workStationId}' : {input}");
         }
 
         private void LogExceptionEvents(string input, Exception exception)
         {
-            _logger.LogExceptionWithNoLock($" Work Station '{_workStationName}' : {input} :", exception);
+            _logger.LogExceptionWithNoLock($" Scale '{_workStationId}' : {input} :", exception);
         }
     }
 }
