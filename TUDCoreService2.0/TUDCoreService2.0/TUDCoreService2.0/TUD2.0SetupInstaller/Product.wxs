@@ -115,6 +115,11 @@
 				<File Id="MicrosoftOptions" Source="$(var.PublishDir)\Microsoft.Extensions.Options.dll" />
 				<File Id="MicrosoftPrimitives" Source="$(var.PublishDir)\Microsoft.Extensions.Primitives.dll" />
 
+				<File Id="BouncyCastleCryptography" Source="$(var.PublishDir)\BouncyCastle.Cryptography.dll" />
+				<File Id="GraphQLClientAbstractions" Source="$(var.PublishDir)\GraphQL.Client.Abstractions.dll" />
+				<File Id="GraphQLClientAbstractionsWebsocket" Source="$(var.PublishDir)\GraphQL.Client.Abstractions.Websocket.dll" />
+				<File Id="GraphQLClient" Source="$(var.PublishDir)\GraphQL.Client.dll" />
+
 				<File Id="NLogConfig" Source="$(var.PublishDir)\NLog.config" />
 				<File Id="NLog" Source="$(var.PublishDir)\NLog.dll" />
 				<File Id="NLogLogging" Source="$(var.PublishDir)\NLog.Extensions.Logging.dll" />
@@ -127,6 +132,39 @@
 				<File Id="SystemServiceController" Source="$(var.PublishDir)\System.ServiceProcess.ServiceController.dll" />
 				<File Id="SystemIOPorts" Source="$(var.PublishDir)\System.IO.Ports.dll" />
 				<File Id="SystemEventLog" Source="$(var.PublishDir)\System.Diagnostics.EventLog.dll" />
+
+				<!--SignalR Files-->
+				<File Id="MapsterCore" Source="$(var.PublishDir)\Mapster.Core.dll" />
+				<File Id="MapsterDependencyInjection" Source="$(var.PublishDir)\Mapster.DependencyInjection.dll" />
+				<File Id="Mapster" Source="$(var.PublishDir)\Mapster.dll" />
+				<File Id="MicrosoftAspNetCoreHttpConnectionsClient" Source="$(var.PublishDir)\Microsoft.AspNetCore.Http.Connections.Client.dll" />
+				<File Id="MicrosoftAspNetCoreConnectionsAbstractions" Source="$(var.PublishDir)\Microsoft.AspNetCore.Connections.Abstractions.dll" />
+				<File Id="MicrosoftAspNetCoreHttpConnectionsCommon" Source="$(var.PublishDir)\Microsoft.AspNetCore.Http.Connections.Common.dll" />
+				<File Id="MicrosoftAspNetCoreSignalRClientCore" Source="$(var.PublishDir)\Microsoft.AspNetCore.SignalR.Client.Core.dll" />
+				<File Id="MicrosoftAspNetCoreSignalRClient" Source="$(var.PublishDir)\Microsoft.AspNetCore.SignalR.Client.dll" />
+				<File Id="MicrosoftAspNetCoreSignalRCommon" Source="$(var.PublishDir)\Microsoft.AspNetCore.SignalR.Common.dll" />
+				<File Id="MicrosoftAspNetCoreSignalRProtocolsJson" Source="$(var.PublishDir)\Microsoft.AspNetCore.SignalR.Protocols.Json.dll" />
+				<File Id="MicrosoftBclAsyncInterfaces" Source="$(var.PublishDir)\Microsoft.Bcl.AsyncInterfaces.dll" />
+				<File Id="MicrosoftBclTimeProvider" Source="$(var.PublishDir)\Microsoft.Bcl.TimeProvider.dll" />
+				<File Id="MicrosoftExtensionsFeatures" Source="$(var.PublishDir)\Microsoft.Extensions.Features.dll" />
+				<File Id="SystemDiagnosticsDiagnosticSource" Source="$(var.PublishDir)\System.Diagnostics.DiagnosticSource.dll" />
+				<File Id="SystemIOPipelines" Source="$(var.PublishDir)\System.IO.Pipelines.dll" />
+				<File Id="SystemNetServerSentEvents" Source="$(var.PublishDir)\System.Net.ServerSentEvents.dll" />
+				<File Id="SystemReactive" Source="$(var.PublishDir)\System.Reactive.dll" />
+				<File Id="SystemTextEncodingsWeb" Source="$(var.PublishDir)\System.Text.Encodings.Web.dll" />
+				<File Id="SystemTextJson" Source="$(var.PublishDir)\System.Text.Json.dll" />
+				<File Id="SystemThreadingChannels" Source="$(var.PublishDir)\System.Threading.Channels.dll" />
+				<!--SignalR Files-->
+
+				<!--API configurator-->
+				<File Id="SDAPIConfigurator" Source="$(var.PublishDir)\SDAPIConfigurator.dll" />
+				<File Id="SDAPIConfiguratorexe" Source="$(var.PublishDir)\SDAPIConfigurator.exe" />
+				<File Id="SDAPIConfiguratorruntimeconfig" Source="$(var.PublishDir)\SDAPIConfigurator.runtimeconfig.json" />
+				<File Id="GraphQLPrimitives" Source="$(var.PublishDir)\GraphQL.Primitives.dll" />
+				<File Id="SDAPIConfiguratordeps" Source="$(var.PublishDir)\SDAPIConfigurator.deps.json" />
+				<File Id="GraphQLClientSerializerNewtonsoft" Source="$(var.PublishDir)\GraphQL.Client.Serializer.Newtonsoft.dll" />
+
+				<!--API configurator-->
 
 				<File Id="TUDExe" Source="$(var.PublishDir)\TUDCoreService2.0.exe" KeyPath="yes" />
 				<File Id="TUDCoreService2dll" Source="$(var.PublishDir)\TUDCoreService2.0.dll" />
